@@ -163,7 +163,7 @@ public class EgovBBSMasterController {
 		request.setAttribute("mberId", mberId);
 		String mberNm = loginVO.getName();
 		request.setAttribute("mberNm", mberNm);
-		//System.err.println("=====insertBBSMasterViewNt======boardMaster.getTel()="+boardMaster.getTel());
+		System.err.println("=====insertBBSMasterViewNt======boardMaster.getTel()="+boardMaster.getTel());
 		//System.err.println("=====insertBBSMasterViewNt======boardMasterVO.getTel()="+boardMasterVO.getTel());
 		//비밀번호 정답 비교하는 루틴 이용하여 가입할 때 전화와 일치하는 지 확인해서 처리		
 		//---------------------------------
