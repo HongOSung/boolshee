@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Wed May 11 15:49:39 KST 2016-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CmmUseDAO">
+
+	<resultMap id="CmmCodeDetail" type="egovframework.com.cmm.service.CmmnDetailCode">
+		<result property="codeId" column="CODE_ID"/>
+		<result property="code" column="CODE"/>
+		<result property="codeNm" column="CODE_NM"/>
+		<result property="codeDc" column="CODE_DC"/>
+		<result property="action" column="action"/>
+	</resultMap>
+
+	<select id="selectCmmCodeDetail" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">
+		 
+			SELECT 
+			CODE_ID, CODE, CODE_NM, CODE_DC
+			FROM 
+			COMTCCMMNDETAILCODE
+			WHERE
+			USE_AT = 'Y'
+			AND CODE_ID = #{codeId}
+		
+	</select>
+
+    <select id="selectOgrnztIdDetail" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">
+             
+            SELECT 
+                #{tableNm}     CODE_ID, 
+                ORGNZT_ID     CODE, 
+                ORGNZT_NM     CODE_NM, 
+                ORGNZT_DC     CODE_DC
+            FROM 
+                COMTNORGNZTINFO
+            WHERE 1=1
+            
+            <if test='haveDetailCondition == "Y"'>AND
+                ORGNZT_ID  LIKE  #{detailConditionValue}
+            </if>
+    </select>
+    
+    <select id="selectGroupIdDetail" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">
+             
+            SELECT 
+                #{tableNm}     CODE_ID, 
+                GROUP_ID     CODE, 
+                GROUP_NM     CODE_NM, 
+                GROUP_DC     CODE_DC
+            FROM 
+                COMTNAUTHORGROUPINFO
+            WHERE 1=1
+            
+            <if test='haveDetailCondition == "Y"'>AND
+                GROUP_ID  LIKE  #{detailConditionValue}
+            </if>
+    </select>
+    
+     <select id="selectbbsNmDetail" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">			
+			SELECT telNo telNoCk, 
+				(SELECT BBS_NM FROM COMTNBBSMASTER where BBS_ID = #{bbsId}) bbsNm
+				FROM COMTNGNRLMBER WHERE 1=1 and MBER_ID = #{mberId}          
+    </select>
+    
+    <select id="selectbbsNmDetailHp" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">			  
+				SELECT telNo telNoCk, 
+				(SELECT BBS_NM FROM helpRequest where BBS_ID = #{bbsId}) bbsNm,
+				(SELECT action FROM helpRequest where BBS_ID = #{bbsId}) action
+				FROM COMTNGNRLMBER WHERE 1=1 and MBER_ID = #{mberId}        
+    </select>
+    
+    <select id="selectbbsNmDetailNt" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">			  
+				SELECT telNo telNoCk, 
+				(SELECT BBS_NM FROM noticeRequest where BBS_ID = #{bbsId}) bbsNm,
+				(SELECT action FROM noticeRequest where BBS_ID = #{bbsId}) action
+				FROM COMTNGNRLMBER WHERE 1=1 and MBER_ID = #{mberId}        
+    </select>
+    
+    <select id="selectRequestDetail" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">			  
+				SELECT telNo telNoCk, 
+				(SELECT BBS_NM FROM mnaRequest where BBS_ID = #{bbsId}) bbsNm,
+				(SELECT action FROM mnaRequest where BBS_ID = #{bbsId}) action
+				FROM COMTNGNRLMBER WHERE 1=1 and MBER_ID = #{mberId}        
+    </select>
+    
+    <select id="selectDistwatchDetail" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">			
+			SELECT telNo telNoCk, RECOMMENDER_ID, MBER_ID, MBER_NM,
+				(SELECT district FROM cngrsmn where no = #{no}) district,
+				(SELECT st FROM cngrsmn where no = #{no}) st,
+				(SELECT city FROM  cngrsmn where no = #{no}) city,
+				(SELECT party FROM  cngrsmn where no = #{no}) party,
+				(SELECT mnaNm FROM  cngrsmn where no = #{no}) mnaNm,
+				(SELECT RECOMMENDER_NAME FROM RECOMMENDER WHERE RECOMMENDER_ID = 
+				(SELECT RECOMMENDER_ID FROM  COMTNGNRLMBER WHERE  MBER_ID = #{mberId})) RECOMMENDER_NAME
+				FROM COMTNGNRLMBER WHERE 1=1 and MBER_ID = #{mberId}
+    </select>
+    
+    <select id="selectGepyosoDetail" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">			
+			SELECT telNo telNoCk, RECOMMENDER_ID, MBER_ID, MBER_NM,
+				(SELECT city FROM  gepyoso where no = #{no}) city,
+				(SELECT gepyoso FROM  gepyoso where no = #{no}) gepyoso,
+				(SELECT members FROM  gepyoso where no = #{no}) members,
+				(SELECT RECOMMENDER_NAME FROM RECOMMENDER WHERE RECOMMENDER_ID = 
+				(SELECT RECOMMENDER_ID FROM  COMTNGNRLMBER WHERE  MBER_ID = #{mberId})) RECOMMENDER_NAME
+				FROM COMTNGNRLMBER WHERE 1=1 and MBER_ID = #{mberId}
+    </select>
+    
+    <select id="selectSajeonTuDetail" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">			
+			SELECT telNo telNoCk, RECOMMENDER_ID, MBER_ID, MBER_NM,
+				(SELECT city FROM  sajeonSeonTu where no = #{no}) city,
+				(SELECT tupyoso FROM  sajeonSeonTu where no = #{no}) tupyoso,
+				(SELECT gungu FROM  sajeonSeonTu where no = #{no}) gungu,
+				(SELECT ampm FROM  sajeonSeonTu where no = #{no}) ampm,
+				(SELECT RECOMMENDER_NAME FROM RECOMMENDER WHERE RECOMMENDER_ID = 
+				(SELECT RECOMMENDER_ID FROM  COMTNGNRLMBER WHERE  MBER_ID = #{mberId})) RECOMMENDER_NAME
+				FROM COMTNGNRLMBER WHERE 1=1 and MBER_ID = #{mberId}
+    </select>
+    
+     <select id="selectPolPlaceDetail" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">			
+			SELECT telNo telNoCk, RECOMMENDER_ID, MBER_ID, MBER_NM,
+				(SELECT pllngplce FROM pollingPlace where no = #{no}) pllngplce,
+				(SELECT ampm FROM pollingPlace where no = #{no}) ampm,
+				(SELECT bldngNm FROM pollingPlace where no = #{no}) bldngNm,
+				(SELECT RECOMMENDER_NAME FROM RECOMMENDER WHERE RECOMMENDER_ID = 
+				(SELECT RECOMMENDER_ID FROM  COMTNGNRLMBER WHERE  MBER_ID = #{mberId})) RECOMMENDER_NAME
+				FROM COMTNGNRLMBER WHERE 1=1 and MBER_ID = #{mberId}
+    </select>
+    
+    <select id="selectPasswordCnsrCk" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">
+            SELECT                     
+               PASSWORD_CNSR passwordCnsrCk
+            FROM 
+                COMTNGNRLMBER
+            WHERE 1=1
+            and MBER_ID = #{mberId}          
+    </select>
+    
+    <select id="selectTel" parameterType="ComDefaultCodeVO" resultMap="CmmCodeDetail">
+            SELECT                     
+               tel 
+            FROM 
+                hepRequest
+            WHERE 1=1
+            and MBER_ID = #{mberId}          
+    </select>
+    
+
+</mapper>
