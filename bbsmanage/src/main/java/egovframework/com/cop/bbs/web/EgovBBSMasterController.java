@@ -163,8 +163,8 @@ public class EgovBBSMasterController {
 		request.setAttribute("mberId", mberId);
 		String mberNm = loginVO.getName();
 		request.setAttribute("mberNm", mberNm);
-		System.err.println("=====insertBBSMasterViewNt======boardMaster.getTel()="+boardMaster.getTel());
-		//System.err.println("=====insertBBSMasterViewNt======boardMasterVO.getTel()="+boardMasterVO.getTel());
+		//System.err.println("=====insertBBSMasterViewNt======boardMaster.getTel()="+boardMaster.getTel());
+		System.err.println("=====insertBBSMasterViewNt======boardMasterVO.getTel()="+boardMasterVO.getTel());
 		//비밀번호 정답 비교하는 루틴 이용하여 가입할 때 전화와 일치하는 지 확인해서 처리		
 		//---------------------------------
 		// 2011.09.15 : 2단계 기능 추가 반영 방법 변경
@@ -1477,6 +1477,7 @@ public class EgovBBSMasterController {
 		    @RequestParam("tupyoso_S") String tupyoso, 
 		    @RequestParam("mberId_S") String mberId, @RequestParam("mberNm_S") String mberNm, 
 		    @RequestParam("members") Integer members,
+		    @RequestParam("day") String day,
 		    @RequestParam("ampm") String ampm,
 		    @RequestParam("MBER_ID") String MBER_ID,
 		    @RequestParam("MBER_NM") String MBER_NM,
@@ -1490,6 +1491,7 @@ public class EgovBBSMasterController {
 		boardMaster.setGepyoso(tupyoso);
 		boardMaster.setCity(city);
 		boardMaster.setMembers(members);
+		boardMaster.setDay(day);
 		boardMaster.setAmpm(ampm);
 		boardMaster.setMBER_ID(mberId); 
 		boardMaster.setMBER_NM(mberNm); 
@@ -2000,14 +2002,11 @@ public class EgovBBSMasterController {
 
 		Map<String, Object> map = egovBBSMasterService.selectSajeonSeon(boardMasterVO);
 		int totCnt = Integer.parseInt((String)map.get("resultCnt"));
-		//System.err.println("map.get(\"resultList\")==selectBBSMasterInfs="+map.get("resultList"));
 		paginationInfo.setTotalRecordCount(totCnt);
 	
 		model.addAttribute("resultList", map.get("resultList"));
 		model.addAttribute("resultCnt", map.get("resultCnt"));	
 		model.addAttribute("paginationInfo", paginationInfo);
-
-		
 		return "egovframework/sajeonTu/sajeonTuList";
     }
     

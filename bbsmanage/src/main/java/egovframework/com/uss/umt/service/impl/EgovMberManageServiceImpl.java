@@ -77,8 +77,8 @@ public class EgovMberManageServiceImpl extends EgovAbstractServiceImpl implement
 		return result;
 	}
 
-	public String insertDistwach(MberManageVO mberManageVO) throws Exception  {
-		String result = mberManageDAO.insertDistwach(mberManageVO);
+	public String insertPollWatch(MberManageVO mberManageVO) throws Exception  {
+		String result = mberManageDAO.insertPollWatch(mberManageVO);
 		return result;
 	}
 	
@@ -155,6 +155,10 @@ public class EgovMberManageServiceImpl extends EgovAbstractServiceImpl implement
 		String pass = EgovFileScrty.encryptPassword(mberManageVO.getPassword(), EgovStringUtil.isNullToString(mberManageVO.getMberId()));//KISA 보안약점 조치 (2018-10-29, 윤창원)
 		mberManageVO.setPassword(pass);
 		mberManageDAO.updateMber(mberManageVO);
+	}
+	@Override
+	public void updateGnrMber(MberManageVO mberManageVO) throws Exception {
+		mberManageDAO.updateGnrMber(mberManageVO);
 	}
 	@Override
 	public void updateMberHp(MberManageVO mberManageVO) throws Exception {
@@ -278,15 +282,24 @@ public class EgovMberManageServiceImpl extends EgovAbstractServiceImpl implement
 	}
 
 	@Override
-	public List<?> selectGnrMber(MberManageVO mberManageVO) throws Exception {
-		return mberManageDAO.selectGnrMber(mberManageVO);
+	public List<?> selectGnrMber(UserDefaultVO userSearchVO) throws Exception {
+		return mberManageDAO.selectGnrMber(userSearchVO);
 	}
 
 	@Override
-	public int selectGnrMberTotCnt(MberManageVO mberManageVO) {
-		return mberManageDAO.selectGnrMberTotCnt(mberManageVO);
+	public int selectGnrMberTotCnt(UserDefaultVO userSearchVO) {
+		return mberManageDAO.selectGnrMberTotCnt(userSearchVO);
 	}
-    
+	
+	@Override
+	public List<?> selectMyGnrMber(UserDefaultVO userSearchVO) throws Exception {
+		return mberManageDAO.selectMyGnrMber(userSearchVO);
+	}
+
+	@Override
+	public int selectMyGnrMberTotCnt(UserDefaultVO userSearchVO) {
+		return mberManageDAO.selectMyGnrMberTotCnt(userSearchVO);
+	}    
 
 	@Override
 	public void deleteGnrMber(UserDefaultVO userSearchVO) throws Exception {

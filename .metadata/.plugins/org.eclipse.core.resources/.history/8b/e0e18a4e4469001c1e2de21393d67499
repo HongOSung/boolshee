@@ -1,0 +1,190 @@
+#\uc18c\uc2dc\ubbfc \ub2e8\uccb4\uc18d\uc131\uad00\ub9ac BBS Master#
+comCopBbs.boardMasterVO.title=\uc18c\uc2dc\ubbfc \ub2e8\uccb4
+comCopBbs.boardMasterVO.helpReqtitle=\ub3c4\uc6c0\uc694\uccad
+comCopBbs.boardMasterVO.noticeReqtitle=\uad6d\ud68c\uccad\uc6d0,\uc54c\ub9bc,\ud589\uc0ac,\uc9c8\ubb38
+comCopBbs.boardMasterVO.jointitle=\uc18c\uc2dc\ubbfc \ub2e8\uccb4 \uac00\uc785 
+comCopBbs.boardMasterVO.helpReqJointitle=\ub3c4\uc6c0\uc751\ub2f5
+comCopBbs.boardMasterVO.noticeReqJointitle=\uc54c\ub9bc,\ud589\uc0ac,\uc9c8\ubb38 \uc751\ub2f5
+comCopBbs.boardMasterVO.mnaReqJointitle=\uccad\uc6d0 
+comCopBbs.boardMasterVO.mnatitle=\uad6d\ud68c\uc758\uc6d0 \uc804\ud654 \ubc0f \uc8fc\uc18c
+comCopBbs.boardMasterVO.gepyosotitle=\uac1c\ud45c\uc18c
+comCopBbs.boardMasterVO.sajeontitle=\uc0ac\uc804\ud22c\ud45c\uc18c
+comCopBbs.boardMasterVO.PolPlacetitle=\ud22c\ud45c\uc18c
+comCopBbs.boardMasterVO.GepyoResponsetitle=\uac1c\ud45c \ucc38\uad00\uc778
+comCopBbs.boardMasterVO.SajeonResponsetitle=\uc0ac\uc804\ud22c\ud45c \ucc38\uad00\uc778
+
+comCopBbs.boardMasterVO.list.bbsNm=\uc18c\uc2dc\ubbfc \ub2e8\uccb4\uba85
+comCopBbs.boardMasterVO.list.bbsNm2=\uac00\uc785 \ub2e8\uccb4\uba85
+comCopBbs.boardMasterVO.list.bbsNm3=\ub3c4\uc6c0\uc694\uccad\uba85
+comCopBbs.boardMasterVO.list.bbsNm4=\uc54c\ub9bc,\ud589\uc0ac,\uc9c8\ubb38\uba85
+comCopBbs.boardMasterVO.list.mna=\uccad\uc6d0 \uba85
+comCopBbs.boardMasterVO.list.bbsIntrcn=\uc18c\uc2dc\ubbfc \ub2e8\uccb4\uc18c\uac1c\ub0b4\uc6a9
+comCopBbs.boardMasterVO.list.bbsIntrcn2=\uac00\uc785\ud68c\uc6d0 \uba85
+comCopBbs.boardMasterVO.list.bbsIntrcn3=\ub4f1\ub85d\uc790 \uba85
+comCopBbs.boardMasterVO.list.bbsIntrcn4=\uc751\ub2f5\uc790 \uba85
+comCopBbs.boardMasterVO.list.useAt=\uc0ac\uc6a9\uc5ec\ubd80
+
+comCopBbs.boardMasterVO.list.district=\uc120\uac70\uad6c
+comCopBbs.boardMasterVO.list.gepyoso=\uac1c\ud45c\uc18c
+comCopBbs.boardMasterVO.list.pllngplce=\ud22c\ud45c\uc18c
+comCopBbs.boardMasterVO.list.watchDog=\ud22c\ud45c\uc18c \uc9c0\ud0b4\uc774
+comCopBbs.boardMasterVO.list.watchPol=\uc9c0\ud0b4\uc774
+comCopBbs.boardMasterVO.list.gepyosoWatch=\uac1c\ud45c \ucc38\uad00\uc778
+comCopBbs.boardMasterVO.list.party=\uc815\ub2f9 
+comCopBbs.boardMasterVO.list.mnaNm=\uad6d\ud68c\uc758\uc6d0\uc774\ub984 
+comCopBbs.boardMasterVO.list.city=\uc2dc \ub3c4
+comCopBbs.boardMasterVO.list.citygungu=\uc2dc \ub3c4 \uad70 \uad6c
+comCopBbs.boardMasterVO.list.gungu=\uad70 \uad6c
+comCopBbs.boardMasterVO.list.tupyoso=\uc0ac\uc804\ud22c\ud45c\uc18c
+comCopBbs.boardMasterVO.list.tupyosoWatch=\uc0ac\uc804\ud22c\ud45c \ucc38\uad00\uc778
+comCopBbs.boardMasterVO.list.dong=\ub3d9 
+
+comCopBbs.boardMasterVO.detail.bbsNm=\uc18c\uc2dc\ubbfc \ub2e8\uccb4\uba85
+comCopBbs.boardMasterVO.detail.bbsIntrcn=\uc18c\uc2dc\ubbfc \ub2e8\uccb4\uc18c\uac1c\ub0b4\uc6a9
+comCopBbs.boardMasterVO.detail.action=\ucde8\uc9c0\uc640 \uc2e4\ucc9c\uacfc\uc81c
+comCopBbs.boardMasterVO.detail.tel=\uc804\ud654\ubc88\ud638
+comCopBbs.boardMasterVO.detail.fullnm=\ub2e8\uccb4\ucd1d\uba85
+comCopBbs.boardMasterVO.detail.members=\ud68c\uc6d0\uc218
+comCopBbs.boardMasterVO.detail.ampm=\uc624\uc804/\uc624\ud6c4
+comCopBbs.boardMasterVO.detail.useAt=\uc0ac\uc6a9\uc5ec\ubd80
+comCopBbs.boardMasterVO.detail.replyPosblAt=\ub2f5\uc7a5\uac00\ub2a5\uc5ec\ubd80
+comCopBbs.boardMasterVO.detail.fileAtchPosblAt=\ud30c\uc77c\ucca8\ubd80\uac00\ub2a5\uc5ec\ubd80
+comCopBbs.boardMasterVO.detail.atchPosblFileNumber=\ucca8\ubd80\uac00\ub2a5\ud30c\uc77c\uc22b\uc790
+comCopBbs.boardMasterVO.detail.bbsTyCode=\uc18c\uc2dc\ubbfc \ub2e8\uccb4 \uc720\ud615
+comCopBbs.boardMasterVO.detail.bbsAdres=\uc18c\uc2dc\ubbfc \ub2e8\uccb4 \uc8fc\uc18c
+comCopBbs.boardMasterVO.detail.option=\ucd94\uac00\uc120\ud0dd\uc0ac\ud56d
+comCopBbs.boardMasterVO.detail.option1=\ubbf8\uc120\ud0dd
+comCopBbs.boardMasterVO.detail.option2=\ub313\uae00
+comCopBbs.boardMasterVO.detail.option3=\ub9cc\uc871\ub3c4\uc870\uc0ac
+comCopBbs.boardMasterVO.detail.option.unabledToModify=\u203b \ucd94\uac00 \uc120\ud0dd\uc0ac\ud56d\uc740 \uc218\uc815 \ubd88\uac00 (\ubbf8\uc124\uc815\ub41c \uae30\uc874 \uc18c\uc2dc\ubbfc \ub2e8\uccb4\uc758 \uacbd\uc6b0 \ucc98\uc74c \uc124\uc815\uc740 \uac00\ub2a5\ud568)
+
+comCopBbs.boardMasterVO.regist.bbsNm=\uc18c\uc2dc\ubbfc \ub2e8\uccb4\uba85
+comCopBbs.boardMasterVO.regist.reHpNm=\ub3c4\uc6c0\uc694\uccad \uba85
+comCopBbs.boardMasterVO.regist.reNtNm=\uc54c\ub9bc,\ud589\uc0ac,\uc9c8\ubb38 \uba85
+comCopBbs.boardMasterVO.regist.bbsIntrcn=\uc18c\uc2dc\ubbfc \ub2e8\uccb4\uc18c\uac1c\ub0b4\uc6a9
+comCopBbs.boardMasterVO.regist.action=\ucde8\uc9c0\uc640 \uc2e4\ucc9c\uacfc\uc81c
+comCopBbs.boardMasterVO.regist.reHpaction=\uc694\uccad\ub0b4\uc6a9\uacfc \ub2f9\uba74\uacfc\uc81c
+comCopBbs.boardMasterVO.regist.reNtaction=\uc54c\ub9bc,\ud589\uc0ac,\uc9c8\ubb38 \ub0b4\uc6a9
+comCopBbs.boardMasterVO.regist.tel=\ud578\ub4dc\ud3f0\ubc88\ud638
+comCopBbs.boardMasterVO.regist.fullnm=\ub2e8\uccb4\ucd1d\uba85
+comCopBbs.boardMasterVO.regist.reHpfullnm=\ub3c4\uc6c0\uc694\uccad \ucd1d\uba85
+comCopBbs.boardMasterVO.regist.reNtfullnm=\uc54c\ub9bc,\ud589\uc0ac,\uc9c8\ubb38 \ucd1d\uba85
+comCopBbs.boardMasterVO.regist.mberNm=\ub4f1\ub85d\uc790
+comCopBbs.boardMasterVO.regist.members=\ud68c\uc6d0\uc218
+comCopBbs.boardMasterVO.regist.reHpmembers=\uc751\ub2f5\uc790 \uc218
+comCopBbs.boardMasterVO.regist.reNtmembers=\uc870\ud68c \uc218
+comCopBbs.boardMasterVO.regist.useAt=\uc0ac\uc6a9\uc5ec\ubd80
+comCopBbs.boardMasterVO.regist.replyPosblAt=\ub2f5\uc7a5\uac00\ub2a5\uc5ec\ubd80
+comCopBbs.boardMasterVO.regist.fileAtchPosblAt=\ud30c\uc77c\ucca8\ubd80\uac00\ub2a5\uc5ec\ubd80
+comCopBbs.boardMasterVO.regist.atchPosblFileNumber=\ucca8\ubd80\uac00\ub2a5\ud30c\uc77c\uc22b\uc790
+comCopBbs.boardMasterVO.regist.bbsTyCode=\uc18c\uc2dc\ubbfc \ub2e8\uccb4 \uc720\ud615
+
+comCopBbs.boardMasterVO.updt.bbsNm=\uc18c\uc2dc\ubbfc \ub2e8\uccb4\uba85 
+comCopBbs.boardMasterVO.updt.reHpbbsNm=\ub3c4\uc6c0\uc694\uccad \uba85 
+comCopBbs.boardMasterVO.updt.reNtbbsNm=\uc54c\ub9bc,\ud589\uc0ac,\uc9c8\ubb38 \uba85 
+comCopBbs.boardMasterVO.updt.mnaRequestBbsNm=\uccad\uc6d0 \uba85 
+comCopBbs.boardMasterVO.updt.frstRegisterNm=\ub4f1\ub85d\uc790
+comCopBbs.boardMasterVO.updt.requestNm=\ub3c4\uc6c0 \uc694\uccad\uc790
+comCopBbs.boardMasterVO.updt.NtRequestNm=\uc54c\ub9bc,\ud589\uc0ac,\uc9c8\ubb38 \ub4f1\ub85d\uc790
+comCopBbs.boardMasterVO.updt.tel=\uc804\ud654\ubc88\ud638
+comCopBbs.boardMasterVO.updt.members=\ud68c\uc6d0\uc218
+comCopBbs.boardMasterVO.updt.reHpmembers=\uc751\ub2f5\uc790 \uc218
+comCopBbs.boardMasterVO.updt.counts=\uc870\ud68c \uc218
+comCopBbs.boardMasterVO.updt.member=\uac00\uc785\ud68c\uc6d0 \uba85
+comCopBbs.boardMasterVO.updt.responsemember=\uc751\ub2f5\uc790 \uba85
+comCopBbs.boardMasterVO.updt.mnaRespnsemember=\ub3d9\uc758\uc790
+comCopBbs.boardMasterVO.updt.fullnm=\ub2e8\uccb4 \ucd1d\uba85
+comCopBbs.boardMasterVO.updt.reHpfullnm=\ub3c4\uc6c0\uc694\uccad \ucd1d\uba85
+comCopBbs.boardMasterVO.updt.action=\ucde8\uc9c0\uc640 \uc2e4\ucc9c\uacfc\uc81c
+comCopBbs.boardMasterVO.updt.contents=\ub3c4\uc6c0\uc694\uccad\ub0b4\uc6a9
+comCopBbs.boardMasterVO.updt.noticeContents=\uc54c\ub9bc,\ud589\uc0ac,\uc9c8\ubb38 \ub0b4\uc6a9
+comCopBbs.boardMasterVO.updt.responsecontents=\uc694\uccad\uc751\ub2f5\ub0b4\uc6a9
+comCopBbs.boardMasterVO.updt.Ntresponsecontents=\uc54c\ub9bc,\ud589\uc0ac,\uc9c8\ubb38 \uc751\ub2f5\ub0b4\uc6a9
+comCopBbs.boardMasterVO.updt.MnaResponsecontents=\uccad\uc6d0 \ub3d9\uc758 \ub0b4\uc6a9
+comCopBbs.boardMasterVO.updt.bbsIntrcn=\uc18c\uc2dc\ubbfc \ub2e8\uccb4\uc18c\uac1c\ub0b4\uc6a9
+comCopBbs.boardMasterVO.updt.useAt=\uc0ac\uc6a9\uc5ec\ubd80
+comCopBbs.boardMasterVO.updt.replyPosblAt=\ub2f5\uc7a5\uac00\ub2a5\uc5ec\ubd80
+comCopBbs.boardMasterVO.updt.fileAtchPosblAt=\ud30c\uc77c\ucca8\ubd80\uac00\ub2a5\uc5ec\ubd80
+comCopBbs.boardMasterVO.updt.atchPosblFileNumber=\ucca8\ubd80\uac00\ub2a5\ud30c\uc77c\uc22b\uc790
+comCopBbs.boardMasterVO.updt.bbsTyCode=\uc18c\uc2dc\ubbfc \ub2e8\uccb4 \uc720\ud615
+
+comCopBbs.boardMasterVO.updt.mnaNm=\uad6d\ud68c\uc758\uc6d0 \uc774\ub984 
+comCopBbs.boardMasterVO.updt.hosu=\uad6d\ud68c\uc0ac\ubb34\ud638\uc2e4 
+comCopBbs.boardMasterVO.updt.telMna=\uad6d\ud68c\uc804\ud654 
+comCopBbs.boardMasterVO.updt.faxMna=\uad6c\ub0b4\ud329\uc2a4
+comCopBbs.boardMasterVO.updt.district=\uc120\uac70 \uad6c
+comCopBbs.boardMasterVO.updt.gepyoso=\uac1c\ud45c\uc18c
+comCopBbs.boardMasterVO.updt.tupyoso=\uc0ac\uc804\ud22c\ud45c\uc18c
+comCopBbs.boardMasterVO.updt.watchdog=\uc9c0\ud0b4\uc774
+comCopBbs.boardMasterVO.updt.addLocal=\uc9c0\uc5ed
+comCopBbs.boardMasterVO.updt.telLocal=\uc9c0\uc5ed\uc804\ud654
+comCopBbs.boardMasterVO.updt.faxLocal=\ud329\uc2a4
+comCopBbs.boardMasterVO.updt.email=\uc774\uba54\uc77c
+comCopBbs.boardMasterVO.updt.homepage=\ud648\ud398\uc774\uc9c0
+comCopBbs.boardMasterVO.updt.facebook=\ud398\uc774\uc2a4\ubd81
+comCopBbs.boardMasterVO.updt.twit=\ud2b8\uc704\ud2b8
+comCopBbs.boardMasterVO.updt.utube=\uc720\ud29c\ube0c
+comCopBbs.boardMasterVO.updt.Watchdog=\uc120\uac70\uad6c\uc9c0\ud0b4\uc774
+comCopBbs.boardMasterVO.updt.city=\uc2dc \ub3c4 
+
+comCopBbs.boardMasterVO.updt.gungu=\uc2dc \ub3c4 \uad70 \uad6c
+comCopBbs.boardMasterVO.updt.city=\uc2dc \ub3c4
+comCopBbs.boardMasterVO.updt.dong=\ub3d9 
+comCopBbs.boardMasterVO.updt.pllngplce=\ud22c\ud45c\uc18c\uc774\ub984 
+comCopBbs.boardMasterVO.updt.ampm=\uc624\uc804/\uc624\ud6c4
+comCopBbs.boardMasterVO.updt.bldngNm=\ud22c\ud45c\uc18c\uac74\ubb3c
+comCopBbs.boardMasterVO.updt.voteAddr=\ud22c\ud45c\uc18c\uc8fc\uc18c
+comCopBbs.boardMasterVO.updt.mberNm=\ud22c\ud45c\uc18c \uc9c0\ud0b4\uc774
+comCopBbs.boardMasterVO.updt.gepyoMen=\uac1c\ud45c\ucc38\uad00\uc778
+comCopBbs.boardMasterVO.updt.sajeonMen=\uc0ac\uc804\ud22c\ud45c \ucc38\uad00\uc778
+
+comCopBbs.boardMasterVO.guestReply=\ubc29\uba85\ub85d\uc5d0 \ub2f5\uc7a5\uc774 \ubd88\uac00\ub2a5\ud569\ub2c8\ub2e4.
+comCopBbs.boardMasterVO.guestFile=\ubc29\uba85\ub85d\uc5d0 \ud30c\uc77c\uc744 \ucca8\ubd80\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.
+
+#\uc18c\uc2dc\ubbfc \ub2e8\uccb4
+comCopBbs.articleVO.title=\uac8c\uc2dc\uae00
+
+comCopBbs.articleVO.list.nttSj=\uc81c\ubaa9
+comCopBbs.articleVO.list.nttCn=\ub0b4\uc6a9
+comCopBbs.articleVO.list.inqireCo=\uc870\ud68c\uc218
+
+comCopBbs.articleVO.detail.nttSj=\uc81c\ubaa9
+comCopBbs.articleVO.detail.nttCn=\ub0b4\uc6a9
+comCopBbs.articleVO.detail.inqireCo=\uc870\ud68c\uc218
+comCopBbs.articleVO.detail.ntceDe=\uac8c\uc2dc\uae30\uac04
+comCopBbs.articleVO.detail.atchFile=\ucca8\ubd80\ud30c\uc77c
+
+comCopBbs.articleVO.regist.nttSj=\uc81c\ubaa9
+comCopBbs.articleVO.regist.nttCn=\ub0b4\uc6a9
+comCopBbs.articleVO.regist.sjBoldAt=\uc81c\ubaa9 \uc9c4\ud558\uac8c
+comCopBbs.articleVO.regist.noticeAt=\uc54c\ub9bc\ub4f1\ub85d
+comCopBbs.articleVO.regist.secretAt=\ube44\ubc00\uae00
+comCopBbs.articleVO.regist.anonymousAt=\uc775\uba85\ub4f1\ub85d
+comCopBbs.articleVO.regist.ntceDe=\uac8c\uc2dc\uae30\uac04
+comCopBbs.articleVO.regist.atchFile=\ucca8\ubd80\ud30c\uc77c
+
+comCopBbs.articleVO.updt.nttSj=\uc81c\ubaa9
+comCopBbs.articleVO.updt.nttCn=\ub0b4\uc6a9
+comCopBbs.articleVO.updt.sjBoldAt=\uc81c\ubaa9 \uc9c4\ud558\uac8c
+comCopBbs.articleVO.updt.noticeAt=\uc54c\ub9bc\ub4f1\ub85d
+comCopBbs.articleVO.updt.secretAt=\ube44\ubc00\uae00
+comCopBbs.articleVO.updt.anonymousAt=\uc775\uba85\ub4f1\ub85d
+comCopBbs.articleVO.updt.ntceDe=\uac8c\uc2dc\uae30\uac04
+comCopBbs.articleVO.updt.atchFile=\ucca8\ubd80\ud30c\uc77c
+comCopBbs.articleVO.updt.atchFileAdd=\ucca8\ubd80\ud30c\uc77c \ucd94\uac00
+
+comCopBbs.articleVO.reply.nttSj=\uc81c\ubaa9
+comCopBbs.articleVO.reply.nttCn=\ub0b4\uc6a9
+comCopBbs.articleVO.reply.sjBoldAt=\uc81c\ubaa9 \uc9c4\ud558\uac8c
+comCopBbs.articleVO.reply.noticeAt=\uc54c\ub9bc\ub4f1\ub85d
+comCopBbs.articleVO.reply.anonymousAt=\uc775\uba85\ub4f1\ub85d
+comCopBbs.articleVO.reply.ntceDe=\uac8c\uc2dc\uae30\uac04
+comCopBbs.articleVO.reply.atchFile=\ucca8\ubd80\ud30c\uc77c
+
+comCopBbs.articleVO.guest.title=\ubc29\uba85\ub85d
+
+comCopBbs.articleVO.secretBold=\ube44\ubc00\uae00\uc740 \uc81c\ubaa9\uc744 \uc9c4\ud558\uac8c \ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.
+comCopBbs.articleVO.secretAnonymous=\ube44\ubc00\uae00\uc740 \uc775\uba85\uc73c\ub85c \ub4f1\ub85d\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.
+comCopBbs.articleVO.secretNotice=\ube44\ubc00\uae00\uc740 \uc54c\ub9bc\uc73c\ub85c \ub4f1\ub85d\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.
+comCopBbs.articleVO.anonymousNotice=\uc775\uba85\uae00\uc740 \uc54c\ub9bc\uc73c\ub85c \ub4f1\ub85d\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.
+comCopBbs.articleVO.ntceDeError=\uac8c\uc2dc\uae30\uac04 \uc885\ub8cc\uc77c\uc774 \uc2dc\uc791\uc77c\ubcf4\ub2e4 \ube60\ub985\ub2c8\ub2e4.

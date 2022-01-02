@@ -209,31 +209,31 @@ FROM(
     
     <insert id="insertCOMTNGNRLMBER">       
             INSERT INTO gnrMber (MBER_ID, MBER_NM, birthDay, telNo, RECOMMENDER_ID, SBSCRB_DE, gubun, ESNTL_ID, ADRES)
-SELECT MBER_ID, MBER_NM, birthDay, telNo, RECOMMENDER_ID, SBSCRB_DE, '회원', ESNTL_ID, ADRES
+SELECT MBER_ID, MBER_NM, birthDay, telNo, RECOMMENDER_ID, SBSCRB_DE, '5회원', ESNTL_ID, ADRES
 FROM COMTNGNRLMBER;                              
     </insert>
     
-    <insert id="insertDistwach">       
-            INSERT INTO gnrMber (MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE, gubun, city, district, no, party, mnaNm ) 
-SELECT MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE,  '투표참관', city, district, no, party, mnaNm
-FROM distwach;                              
+    <insert id="insertPollWatch">       
+            INSERT INTO gnrMber (MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE, gubun, pllngplce, ampm, no, bldngNm ) 
+SELECT MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE,  '3투표참관', pllngplce, ampm, no,bldngNm
+FROM pollWatch;                              
     </insert>
     
     <insert id="insertGepyosoResponse">       
             INSERT INTO gnrMber (MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE, gubun, city, gepyoso, no ) 
-SELECT MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE,  '개표참관', city, gepyoso, no
+SELECT MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE,  '2개표참관', city, gepyoso, no
 FROM gepyosoResponse;                              
     </insert>
     
     <insert id="insertMnaResponse">       
             INSERT INTO gnrMber (MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE, gubun, contents ) 
-SELECT MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE,  '청원동의', contents
+SELECT MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE,  '4청원동의', contents
 FROM mnaResponse;                             
     </insert>
     
     <insert id="insertSajeonResponse">       
-            INSERT INTO gnrMber (MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE, gubun, city, gungu, tupyoso, ampm ) 
-SELECT MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE,  '사전투표', city, gungu, tupyoso, ampm
+            INSERT INTO gnrMber (MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE, gubun, city, gungu, tupyoso, day, ampm ) 
+SELECT MBER_ID, MBER_NM, RECOMMENDER_ID, SBSCRB_DE,  '1사전투표', city, gungu, tupyoso, day, ampm
 FROM sajeonResponse;                              
     </insert>
     
@@ -344,6 +344,11 @@ FROM sajeonResponse;
         
     </update>
     
+    <update id="updateGnrMber">
+            UPDATE gnrMber a SET RECOMMENDER_ID= (SELECT RECOMMENDER_ID FROM  COMTNGNRLMBER WHERE  MBER_ID = a.MBER_ID)
+ WHERE a.RECOMMENDER_ID=''
+    </update>
+    
     <update id="updateMber_SHp">
         
             UPDATE COMTNGNRLMBER 
@@ -395,7 +400,7 @@ FROM sajeonResponse;
              MBER_NM LIKE '%' #{searchKeyword} '%'
         </if>
         </if>
-        ORDER BY RECOMMENDER_ID, MBER_NM, gubun, SBSCRB_DE DESC
+        ORDER BY MBER_NM, gubun, RECOMMENDER_ID, SBSCRB_DE DESC
         LIMIT #{recordCountPerPage} OFFSET #{firstIndex}         
     </select>
     
@@ -406,6 +411,40 @@ FROM sajeonResponse;
         <if test="@egovframework.com.cmm.util.EgovMybaitsUtil@isNotEmpty(searchKeyword)">
         <if test="searchCondition == 0">AND                       
              RECOMMENDER_ID LIKE '%' #{searchKeyword} '%'
+        </if> 
+        <if test="searchCondition == 1">AND
+             MBER_NM LIKE '%' #{searchKeyword} '%'
+        </if>
+        </if>
+    </select>
+    
+    <select id="selectMyGnrMber" resultType="egovMap">      
+            SELECT * 
+            FROM gnrMber 
+             WHERE 1=1
+             AND
+        RECOMMENDER_ID = #{mberId}
+        <if test="@egovframework.com.cmm.util.EgovMybaitsUtil@isNotEmpty(searchKeyword)">
+        <if test="searchCondition == 0">AND                        
+              MBER_ID  LIKE '%' #{searchKeyword} '%'
+        </if> 
+        <if test="searchCondition == 1">AND
+              MBER_NM LIKE '%' #{searchKeyword} '%'
+        </if>
+        </if>
+        ORDER BY MBER_NM, gubun, RECOMMENDER_ID, SBSCRB_DE DESC
+        LIMIT #{recordCountPerPage} OFFSET #{firstIndex}         
+    </select>
+    
+    <select id="selectMyGnrMberTotCnt" resultType="int">      
+            SELECT count(*) totCnt
+            FROM gnrMber
+            WHERE 1=1
+            AND
+        RECOMMENDER_ID = #{mberId}
+        <if test="@egovframework.com.cmm.util.EgovMybaitsUtil@isNotEmpty(searchKeyword)">
+        <if test="searchCondition == 0">AND                       
+             MBER_ID LIKE '%' #{searchKeyword} '%'
         </if> 
         <if test="searchCondition == 1">AND
              MBER_NM LIKE '%' #{searchKeyword} '%'

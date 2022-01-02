@@ -185,7 +185,11 @@ public class BoardMasterVO extends BoardMaster implements Serializable {
     private int rowNo = 0;
 
     /** 최초 등록자명 */
+    
     private String frstRegisterNm = "";
+    
+    /** 사전투표 날짜 */
+    private String day = "";
 
     /** 게시판유형 코드명 */
     private String bbsTyCodeNm = "";
@@ -874,6 +878,14 @@ public class BoardMasterVO extends BoardMaster implements Serializable {
 
 	public void setAmpm(String ampm) {
 		this.ampm = ampm;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
 	}
 
 }

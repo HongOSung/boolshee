@@ -34,7 +34,7 @@ public interface EgovMberManageService {
 
 	public String insertCOMTNGNRLMBER(MberManageVO mberManageVO) throws Exception;
 
-	public String insertDistwach(MberManageVO mberManageVO) throws Exception;
+	public String insertPollWatch(MberManageVO mberManageVO) throws Exception;
 	
 	public String insertGepyosoResponse(MberManageVO mberManageVO) throws Exception;
 
@@ -79,6 +79,8 @@ public interface EgovMberManageService {
 	 */
 	public void updateMber(MberManageVO mberManageVO) throws Exception;
 
+	public void updateGnrMber(MberManageVO mberManageVO) throws Exception;
+
 	public void updateMberHp(MberManageVO mberManageVO) throws Exception;
 
 	/**
@@ -103,11 +105,14 @@ public interface EgovMberManageService {
 	 */
 	public List<?> selectStplat(String stplatId)  throws Exception;
 
-	//public List<?> selectGnrMber(UserDefaultVO userSearchVO) throws Exception;
+	public List<?> selectGnrMber(UserDefaultVO userSearchVO) throws Exception;
+	
+	public int selectGnrMberTotCnt(UserDefaultVO userSearchVO) throws Exception;
 
-	public List<?> selectGnrMber(MberManageVO mberManageVO) throws Exception;
+	public List<?> selectMyGnrMber(UserDefaultVO userSearchVO) throws Exception;
 
-	public int selectGnrMberTotCnt(MberManageVO mberManageVO) throws Exception;
+	public int selectMyGnrMberTotCnt(UserDefaultVO userSearchVO) throws Exception;
+
 
 	/**
 	 * 일반회원암호수정
@@ -137,6 +142,5 @@ public interface EgovMberManageService {
 	public void updateLockIncorrect(MberManageVO mberManageVO) throws Exception;
 
 	public void deleteMber(UserDefaultVO userSearchVO);
-	
 
 }

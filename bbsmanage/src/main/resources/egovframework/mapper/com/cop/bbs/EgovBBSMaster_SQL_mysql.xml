@@ -824,7 +824,7 @@ FROM
 	
 	<select id="selectSajeonTuDetail" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="mNaDetail">		
 			SELECT 
-				a.no, a.city, a.gungu, a.tupyoso, a.ampm
+				a.no, a.city, a.gungu, a.tupyoso, a.day, a.ampm
 			FROM
 				sajeonSeonTu a
 			WHERE a.no = #{no}						
@@ -1103,7 +1103,7 @@ FROM
 	<select id="selectSajeonSeon" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
 		
 			SELECT 
-				a.no, a.city, a.gungu, a.tupyoso, a.ampm
+				a.no, a.city, a.gungu, a.tupyoso, a.day, a.ampm
 			FROM
 				sajeonSeonTu a
 			WHERE 1=1
@@ -1120,7 +1120,7 @@ FROM
 			<if test="searchCnd == 2">AND
 					a.tupyoso LIKE CONCAT ('%', #{searchWrd},'%') 		
 			</if>		
-			ORDER BY a.city, a.gungu, a.tupyoso, a.ampm  
+			ORDER BY a.city, a.gungu, a.tupyoso, a.day, a.ampm  
 			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
 						
 	</select>
@@ -1478,11 +1478,11 @@ FROM
 	
 		<insert id="insertSajeonTuResponse" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">	
 			INSERT INTO sajeonResponse
-			( no, city, gungu, tupyoso, ampm, members, MBER_ID, MBER_NM, no_mberid, 
+			( no, city, gungu, tupyoso, day, ampm, members, MBER_ID, MBER_NM, no_mberid, 
 				SBSCRB_DE, RECOMMENDER_ID, RECOMMENDER_NAME
 				)
 			VALUES
-			( #{no}, #{city}, #{gungu}, #{tupyoso}, #{ampm}, #{members}, #{MBER_ID}, 
+			( #{no}, #{city}, #{gungu}, #{tupyoso}, #{day}, #{ampm}, #{members}, #{MBER_ID}, 
 			  	#{MBER_NM}, #{no_mberid}, SYSDATE(), #{RECOMMENDER_ID}, #{RECOMMENDER_NAME}  
 			 	)				
 	</insert>
@@ -1610,7 +1610,7 @@ FROM
 	<select id="selectSajeonTuResponseInfs" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
 		
 			SELECT 
-				a.no, a.city, a.gungu, a.tupyoso, a.members, a.ampm, 
+				a.no, a.city, a.gungu, a.tupyoso, a.members, a.day, a.ampm, 
 				a.MBER_ID, a.MBER_NM
 			FROM
 				sajeonResponse a

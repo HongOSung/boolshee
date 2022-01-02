@@ -85,8 +85,8 @@ public class MberManageDAO extends EgovComAbstractDAO{
 		return String.valueOf((int)insert("mberManageDAO.insertCOMTNGNRLMBER", mberManageVO));
 	}
 	
-	public String insertDistwach(MberManageVO mberManageVO) {
-		return String.valueOf((int)insert("mberManageDAO.insertDistwach", mberManageVO));
+	public String insertPollWatch(MberManageVO mberManageVO) {
+		return String.valueOf((int)insert("mberManageDAO.insertPollWatch", mberManageVO));
 	}
 	
 	public String insertGepyosoResponse(MberManageVO mberManageVO) {
@@ -121,6 +121,9 @@ public class MberManageDAO extends EgovComAbstractDAO{
     public void updateMber(MberManageVO mberManageVO){
         update("mberManageDAO.updateMber_S",mberManageVO);
     }
+	public void updateGnrMber(MberManageVO mberManageVO) {
+		update("mberManageDAO.updateGnrMber",mberManageVO);
+	}
     public void updateMberHp(MberManageVO mberManageVO){
         update("mberManageDAO.updateMber_SHp",mberManageVO);
     }
@@ -134,13 +137,22 @@ public class MberManageDAO extends EgovComAbstractDAO{
     	return list("mberManageDAO.selectStplat_S", stplatId);
     }
 
-	public List<?> selectGnrMber(MberManageVO mberManageVO) {
-		return list("mberManageDAO.selectGnrMber", mberManageVO);
+	public List<?> selectGnrMber(UserDefaultVO userSearchVO) {
+		return list("mberManageDAO.selectGnrMber", userSearchVO);
 	}
 
-	public int selectGnrMberTotCnt(MberManageVO mberManageVO) {
-		return (Integer)selectOne("mberManageDAO.selectGnrMberTotCnt", mberManageVO);
+	public int selectGnrMberTotCnt(UserDefaultVO userSearchVO) {
+		return (Integer)selectOne("mberManageDAO.selectGnrMberTotCnt", userSearchVO);
 	}
+	
+	public List<?> selectMyGnrMber(UserDefaultVO userSearchVO) {
+		return list("mberManageDAO.selectMyGnrMber", userSearchVO);
+	}
+
+	public int selectMyGnrMberTotCnt(UserDefaultVO userSearchVO) {
+		return (Integer)selectOne("mberManageDAO.selectMyGnrMberTotCnt", userSearchVO);
+	}
+	
     /**
      * 일반회원 암호수정
      * @param passVO 기업회원수정정보(비밀번호)

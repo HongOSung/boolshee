@@ -109,6 +109,7 @@
 				(SELECT city FROM  sajeonSeonTu where no = #{no}) city,
 				(SELECT tupyoso FROM  sajeonSeonTu where no = #{no}) tupyoso,
 				(SELECT gungu FROM  sajeonSeonTu where no = #{no}) gungu,
+				(SELECT day FROM  sajeonSeonTu where no = #{no}) day,
 				(SELECT ampm FROM  sajeonSeonTu where no = #{no}) ampm,
 				(SELECT RECOMMENDER_NAME FROM RECOMMENDER WHERE RECOMMENDER_ID = 
 				(SELECT RECOMMENDER_ID FROM  COMTNGNRLMBER WHERE  MBER_ID = #{mberId})) RECOMMENDER_NAME

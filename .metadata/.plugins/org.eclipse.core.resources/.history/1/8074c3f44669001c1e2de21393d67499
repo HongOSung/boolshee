@@ -1,0 +1,1786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BBSMaster">
+
+	<resultMap id="boardMasterList" type="egovframework.com.cop.bbs.service.BoardMasterVO">
+		<result property="bbsId" column="BBS_ID"/>
+		<result property="bbsTyCode" column="BBS_TY_CODE"/>
+		<result property="bbsTyCodeNm" column="BBS_TY_CODE_NM"/>
+		<result property="BBS_NM" column="BBS_NM"/> 
+		<result property="BBS_NMST" column="BBS_NMST"/> 
+		<result property="tmplatId" column="TMPLAT_ID"/>
+		<result property="useAt" column="USE_AT"/>
+		<result property="frstRegisterPnttm" column="FRST_REGIST_PNTTM"/>
+		<result property="mnaNm" column="mnaNm"/>
+		<result property="mnaNmHan" column="mnaNmHan"/>
+		<result property="st" column="st"/>
+		<result property="city" column="city"/>
+		<result property="district" column="district"/>
+		<result property="district2" column="district2"/>
+		<result property="party" column="party"/>
+		<result property="Watchdog" column="Watchdog"/>
+	</resultMap>
+
+	<resultMap id="boardMasterDetail" type="egovframework.com.cop.bbs.service.BoardMasterVO">
+		<result property="bbsId" column="BBS_ID"/>
+		<result property="bbsTyCode" column="BBS_TY_CODE"/>
+		<result property="BBS_NM" column="BBS_NM"/> 
+		<result property="bbsIntrcn" column="BBS_INTRCN"/>
+		<result property="replyPosblAt" column="REPLY_POSBL_AT"/>
+		<result property="fileAtchPosblAt" column="FILE_ATCH_POSBL_AT"/>
+		<result property="atchPosblFileNumber" column="ATCH_POSBL_FILE_NUMBER"/>
+		<result property="atchPosblFileSize" column="ATCH_POSBL_FILE_SIZE"/>
+		<result property="tmplatId" column="TMPLAT_ID"/>
+		<result property="frstRegisterId" column="FRST_REGISTER_ID"/>
+		<result property="frstRegisterNm" column="FRST_REGISTER_NM"/>
+		<result property="frstRegisterPnttm" column="FRST_REGIST_PNTTM"/>
+		<result property="bbsTyCodeNm" column="BBS_TY_CODE_NM"/>
+ 	    <result property="tmplatNm" column="TMPLAT_NM"/>
+		<result property="authFlag" column="AUTH_FLAG"/>
+		<result property="tmplatCours" column="TMPLAT_COURS"/>
+		<result property="cmmntyId" column="CMMNTY_ID"/>
+		<result property="blogId" column="BLOG_ID"/>
+	</resultMap>
+	
+	<resultMap id="mNaDetail" type="egovframework.com.cop.bbs.service.BoardMasterVO">
+		<result property="no" column="no"/>
+		<result property="st" column="st"/>
+		<result property="city" column="city"/> 
+		<result property="district" column="district"/>
+		<result property="gepyoso" column="gepyoso"/>
+		<result property="mnaNm" column="mnaNm"/>
+		<result property="members" column="members"/>
+		<result property="party" column="party"/>
+		<result property="Watchdog" column="Watchdog"/>
+		<result property="hosu" column="hosu"/>
+		<result property="telMna" column="telMna"/>
+		<result property="faxMna" column="faxMna"/>
+		<result property="addLocal" column="addLocal"/>
+		<result property="telLocal" column="telLocal"/>
+		<result property="faxLocal" column="faxLocal"/>
+ 	    <result property="email" column="email"/>
+		<result property="homepage" column="homepage"/>
+		<result property="facebook" column="facebook"/>
+		<result property="twit" column="twit"/>
+		<result property="utube" column="utube"/>
+	</resultMap>
+
+	<resultMap id="boardMasterAll" type="egovframework.com.cop.bbs.service.BoardMasterVO">
+		<result property="bbsId" column="BBS_ID"/>
+		<result property="bbsTyCode" column="BBS_TY_CODE"/>
+		<result property="bbsNm" column="BBS_NM"/>
+		<result property="tmplatId" column="TMPLAT_ID"/>
+	</resultMap>
+	
+	<resultMap id="BlogList" type="egovframework.com.cop.bbs.service.BlogVO">
+		<result property="blogId" column="BLOG_ID"/>
+		<result property="bbsId" column="BBS_ID"/>
+		<result property="blogNm" column="BLOG_NM"/>
+		<result property="registSeCode" column="REGIST_SE_CODE"/>
+		<result property="registSeCodeNm" column="REGIST_SE_CODE_NM"/>
+		<result property="useAt" column="USE_AT"/>
+		<result property="frstRegisterId" column="FRST_REGISTER_ID"/>
+		<result property="frstRegisterNm" column="FRST_REGISTER_NM"/>
+		<result property="frstRegisterPnttm" column="FRST_REGIST_PNTTM"/>
+	</resultMap>
+	
+	<resultMap id="selectBlogDetail" type="egovframework.com.cop.bbs.service.BlogVO">
+		<result property="blogId" column="BLOG_ID"/>
+		<result property="bbsId" column="BBS_ID"/>
+		<result property="blogNm" column="BLOG_NM"/>
+		<result property="blogIntrcn" column="BLOG_INTRCN"/>
+	</resultMap>
+	
+	<resultMap id="selectBlogUser" type="egovframework.com.cop.bbs.service.BlogVO">
+		<result property="frstRegisterId" column="FRST_REGISTER_ID"/>
+	</resultMap>
+	
+	<resultMap id="BlogListPortlet" type="egovframework.com.cop.bbs.service.BlogVO">
+		<result property="blogId" column="BLOG_ID"/>
+		<result property="bbsId" column="BBS_ID"/>
+		<result property="blogNm" column="BLOG_NM"/>
+	</resultMap>
+		
+	<resultMap id="BBSListPortlet" type="egovframework.com.cop.bbs.service.BoardMasterVO">
+		<result property="bbsId" column="BBS_ID"/>
+		<result property="bbsTyCodeNm" column="BBS_TY_CODE"/>
+		<result property="bbsNm" column="BBS_NM"/>
+	</resultMap>	
+	
+	<insert id="insertBbsMember" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+		
+			INSERT INTO BBSMEMBER
+			(BBS_ID, MBER_ID, BBS_NM, MBER_NM, SBSCRB_DE, MBERID_BBSNM)
+			VALUES
+			(#{bbsId}, #{mberId}, #{bbsNm}, #{mberNm}, SYSDATE(), #{mbId_bsNm})			
+		
+	</insert>
+	
+	<insert id="insertBbsMemberInfHp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+		
+			INSERT INTO helpResponse
+			(BBS_ID, MBER_ID, BBS_NM, MBER_NM, SBSCRB_DE, MBERID_BBSNM, contents)
+			VALUES
+			(#{bbsId}, #{mberId}, #{bbsNm}, #{mberNm}, SYSDATE(), #{mbId_bsNm}, #{contents})			
+		
+	</insert>
+	
+		<insert id="insertBbsMemberInfNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+		
+			INSERT INTO noticeResponse
+			(BBS_ID, MBER_ID, BBS_NM, MBER_NM, SBSCRB_DE, MBERID_BBSNM, contents)
+			VALUES
+			(#{bbsId}, #{mberId}, #{bbsNm}, #{mberNm}, SYSDATE(), #{mbId_bsNm}, #{contents})			
+		
+	</insert>
+	
+	<select id="selectBbsMemberList" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.BBS_ID,
+				a.BBS_NM, 
+				a.MBER_ID  mberId, 
+				a.MBER_NM  mberNm, 
+				a.SBSCRB_DE sbsCrbDe
+			FROM
+				BBSMEMBER a
+			WHERE 1=1
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>	
+			ORDER BY a.BBS_NM, a.MBER_NM, a.SBSCRB_DE desc
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectBbsMemberListTotCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+				FROM
+				BBSMEMBER a
+			WHERE 1=1
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>		
+	</select>
+	
+	<select id="selectBbsMemberListHp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.BBS_ID,
+				a.BBS_NM, 
+				a.MBER_ID  mberId, 
+				a.MBER_NM  mberNm, 
+				a.SBSCRB_DE sbsCrbDe,
+				a.contents
+			FROM
+				helpResponse a
+			WHERE 1=1
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>	
+			ORDER BY a.BBS_NM, a.MBER_NM, a.SBSCRB_DE desc
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectBbsMemberListTotCntHp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+				FROM
+				helpResponse a
+			WHERE 1=1
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>		
+	</select>
+	
+	<select id="selectBbsMemberListNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.BBS_ID,
+				a.BBS_NM, 
+				a.MBER_ID  mberId, 
+				a.MBER_NM  mberNm, 
+				a.SBSCRB_DE sbsCrbDe,
+				a.contents
+			FROM
+				noticeResponse a
+			WHERE 1=1
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>	
+			ORDER BY a.BBS_NM, a.MBER_NM, a.SBSCRB_DE desc
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectBbsMemberListTotCntNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+				FROM
+				noticeResponse a
+			WHERE 1=1
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>		
+	</select>
+	
+	<select id="selectMnaResponse" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.BBS_ID,
+				a.BBS_NM, 
+				a.MBER_ID  mberId, 
+				a.MBER_NM  mberNm, 
+				a.SBSCRB_DE sbsCrbDe,
+				a.contents
+			FROM
+				mnaResponse a
+			WHERE 1=1
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>	
+			ORDER BY a.BBS_NM, a.MBER_NM, a.SBSCRB_DE desc
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectMnaResponseCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+				FROM
+				mnaResponse a
+			WHERE 1=1
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>		
+	</select>
+	
+	<select id="selectBbsMemberDetail" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterDetail">
+		
+			SELECT 
+				a.BBS_ID, a.BBS_TY_CODE, b.CODE_NM as BBS_TY_CODE_NM, a.BBS_INTRCN, 
+				a.BBS_NM, a.action, a.tel, a.members, a.fullnm,
+				a.TMPLAT_ID, d.TMPLAT_NM, d.TMPLAT_COURS, a.FILE_ATCH_POSBL_AT, a.ATCH_POSBL_FILE_NUMBER,
+				a.ATCH_POSBL_FILE_SIZE, a.REPLY_POSBL_AT, a.FRST_REGISTER_ID, e.USER_NM as FRST_REGISTER_NM, a.CMMNTY_ID,
+				a.USE_AT, DATE_FORMAT(a.FRST_REGIST_PNTTM, '%Y-%m-%d') as FRST_REGIST_PNTTM, BLOG_ID				
+				,(SELECT IFNULL(USE_AT,'N') FROM COMTNBBSUSE 
+					WHERE BBS_ID = #{bbsId} 
+					AND TRGET_ID IN (#{uniqId}, 'SYSTEM_DEFAULT_BOARD')
+				) as AUTH_FLAG
+			FROM
+				BBSMEMBER a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN COMTNTMPLATINFO d
+				ON a.TMPLAT_ID = d.TMPLAT_ID				
+			LEFT OUTER JOIN COMVNUSERMASTER e
+				ON a.FRST_REGISTER_ID = e.ESNTL_ID		
+			WHERE a.BBS_ID = #{bbsId}
+						
+	</select>
+	
+ 	<update id="updateBbsMember" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+ 		
+			UPDATE BBSMEMBER SET 
+				BBS_NM = #{bbsNm},
+				tel = #{tel},
+				fullnm = #{fullnm},
+				members = #{members},
+				action = #{action},
+				BBS_INTRCN = #{bbsIntrcn}, 
+				BBS_TY_CODE = #{bbsTyCode},
+				FILE_ATCH_POSBL_AT = #{fileAtchPosblAt},
+				ATCH_POSBL_FILE_NUMBER = #{atchPosblFileNumber},
+				TMPLAT_ID = #{tmplatId},		
+				LAST_UPDUSR_ID = #{lastUpdusrId},
+				LAST_UPDT_PNTTM = SYSDATE(),
+				USE_AT = #{useAt}
+			WHERE BBS_ID = #{bbsId}
+ 		
+ 	</update>
+ 	
+ 	<update id="updateMnaInf" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+ 		
+			UPDATE cngrsmn SET 
+				st = #{st},
+				city = #{city},
+				district = #{district},	
+				party = #{party},
+				Watchdog= #{Watchdog},
+				hosu= #{hosu},	
+				telMna = #{telMna},
+				faxMna = #{faxMna},	
+				addLocal= #{addLocal},
+				telLocal = #{telLocal},	
+				faxLocal = #{faxLocal},
+				email = #{email},
+				homepage = #{homepage},
+				facebook = #{facebook},	
+				twit= #{twit},
+				utube = #{utube},	
+				mnaNmHan = #{mnaNmHan},			
+				LAST_UPDUSR_ID = #{lastUpdusrId},
+				LAST_UPDT_PNTTM = SYSDATE()
+			WHERE no = #{no}
+ 		
+ 	</update>
+ 	
+ 	<update id="updatePolPlaceInf" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+ 		
+			UPDATE pollingPlace SET 
+				st = #{st},
+				gubun = #{gubun},
+				city = #{city},	
+				gungu = #{gungu},
+				dong= #{dong},
+				pllngplce= #{pllngplce},	
+				bldngNm = #{bldngNm},
+				voteAddr = #{voteAddr},			
+				LAST_UPDUSR_ID = #{lastUpdusrId},
+				LAST_UPDT_PNTTM = SYSDATE()
+			WHERE no = #{no}
+ 		
+ 	</update>
+
+ 	<update id="deleteBbsMember" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+ 		
+			<!-- UPDATE BBSMEMBER SET 
+				USE_AT = 'N',
+				LAST_UPDUSR_ID = #{lastUpdusrId},
+				LAST_UPDT_PNTTM = SYSDATE() -->
+			<!-- WHERE BBS_ID = #{bbsId} --> 
+			DELETE 
+  				FROM BBSMEMBER 
+			WHERE BBS_NM = #{bbsNm}
+ 		
+ 	</update>
+ 	<!-- 이상은 BbsMember -->
+
+	<insert id="insertBBSMaster" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+		
+			INSERT INTO COMTNBBSMASTER
+			(BBS_ID, BBS_TY_CODE, BBS_NM, BBS_INTRCN, MBER_ID, MBER_NM,
+			 REPLY_POSBL_AT, FILE_ATCH_POSBL_AT, ATCH_POSBL_FILE_NUMBER,
+			 TMPLAT_ID, USE_AT, CMMNTY_ID, tel, members, fullnm, action,
+			 FRST_REGISTER_ID, FRST_REGIST_PNTTM, BLOG_ID, BLOG_AT )
+			VALUES
+			( #{bbsId}, #{bbsTyCode}, #{bbsNm}, #{bbsIntrcn}, #{mberId},  #{mberNm},
+			  #{replyPosblAt}, #{fileAtchPosblAt}, #{atchPosblFileNumber}, 
+			  #{tmplatId}, #{useAt}, #{cmmntyId}, #{tel}, #{members}, #{fullnm}, #{action}, 
+			  #{frstRegisterId}, SYSDATE(), #{blogId}, #{blogAt}  
+			 )			
+		
+	</insert>
+	<insert id="insertBBSMasterNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+		
+			INSERT INTO noticeRequest
+			(BBS_ID, BBS_TY_CODE, BBS_NM, BBS_INTRCN, MBER_ID, MBER_NM,
+			 REPLY_POSBL_AT, FILE_ATCH_POSBL_AT, ATCH_POSBL_FILE_NUMBER,
+			 TMPLAT_ID, USE_AT, CMMNTY_ID, tel, members, fullnm, action,
+			 FRST_REGISTER_ID, FRST_REGIST_PNTTM, BLOG_ID, BLOG_AT )
+			VALUES
+			( #{bbsId}, #{bbsTyCode}, #{bbsNm}, #{bbsIntrcn}, #{mberId},  #{mberNm},
+			  #{replyPosblAt}, #{fileAtchPosblAt}, #{atchPosblFileNumber}, 
+			  #{tmplatId}, #{useAt}, #{cmmntyId}, #{tel}, #{members}, #{fullnm}, #{action}, 
+			  #{frstRegisterId}, SYSDATE(), #{blogId}, #{blogAt}  
+			 )			
+		
+	</insert>
+	
+	<insert id="insertBBSMasterHp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+		
+			INSERT INTO helpRequest
+			(BBS_ID, BBS_TY_CODE, BBS_NM, BBS_INTRCN, MBER_ID, MBER_NM,
+			 REPLY_POSBL_AT, FILE_ATCH_POSBL_AT, ATCH_POSBL_FILE_NUMBER,
+			 TMPLAT_ID, USE_AT, CMMNTY_ID, tel, members, fullnm, action,
+			 FRST_REGISTER_ID, FRST_REGIST_PNTTM, BLOG_ID, BLOG_AT )
+			VALUES
+			( #{bbsId}, #{bbsTyCode}, #{bbsNm}, #{bbsIntrcn}, #{mberId},  #{mberNm},
+			  #{replyPosblAt}, #{fileAtchPosblAt}, #{atchPosblFileNumber}, 
+			  #{tmplatId}, #{useAt}, #{cmmntyId}, #{tel}, #{members}, #{fullnm}, #{action}, 
+			  #{frstRegisterId}, SYSDATE(), #{blogId}, #{blogAt}  
+			 )			
+		
+	</insert>
+	
+	<select id="selectBBSMasterList" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.BBS_ID, a.BBS_TY_CODE, b.CODE_NM as BBS_TY_CODE_NM,
+				a.BBS_NM, 
+				a.TMPLAT_ID, a.USE_AT, a.MBER_NM, a.MBER_ID,
+				e.telNo, a.tel, a.members, a.fullnm, a.action,
+				d.USER_NM AS FRST_REGISTER_NM
+			FROM
+				COMTNBBSMASTER a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT ='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID 
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			ORDER BY a.FRST_REGIST_PNTTM DESC 
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectBBSMasterListTotCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+			FROM
+				COMTNBBSMASTER a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+	</select>
+	
+	<select id="selectBBSMasterListHp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.BBS_ID, a.BBS_TY_CODE, b.CODE_NM as BBS_TY_CODE_NM,
+				a.BBS_NM, e.telNo, f.BBS_NM as BBS_NMST,
+				a.TMPLAT_ID, a.USE_AT, a.MBER_NM, a.MBER_ID,
+				a.tel, a.members, a.fullnm, a.action,
+				d.USER_NM AS FRST_REGISTER_NM
+			FROM
+				helpRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT ='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID 
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			LEFT OUTER JOIN
+				COMTNBBSMASTER f
+				ON a.MBER_ID = f.MBER_ID 
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			ORDER BY a.FRST_REGIST_PNTTM DESC 
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectBBSMasterListTotCntHp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+			FROM
+				helpRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			LEFT OUTER JOIN
+				COMTNBBSMASTER f
+				ON a.MBER_ID = f.MBER_ID 
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+	</select>
+	<select id="selectBBSMasterListNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.BBS_ID, a.BBS_TY_CODE, b.CODE_NM as BBS_TY_CODE_NM,
+				a.BBS_NM, e.telNo, f.BBS_NM as BBS_NMST,
+				a.TMPLAT_ID, a.USE_AT, a.MBER_NM, a.MBER_ID,
+				a.tel, a.members, a.fullnm, a.action,
+				d.USER_NM AS FRST_REGISTER_NM
+			FROM
+				noticeRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT ='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID 
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			LEFT OUTER JOIN
+				COMTNBBSMASTER f
+				ON a.MBER_ID = f.MBER_ID 
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			ORDER BY a.FRST_REGIST_PNTTM DESC 
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectBBSMasterListTotCntNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">	
+			SELECT 
+				COUNT(*)
+			FROM
+				noticeRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			LEFT OUTER JOIN
+				COMTNBBSMASTER f
+				ON a.MBER_ID = f.MBER_ID 
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+	</select>
+	
+	<select id="selectBBSMasterDetail" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterDetail">
+		
+			SELECT 
+				a.BBS_ID, a.BBS_TY_CODE, b.CODE_NM as BBS_TY_CODE_NM, a.BBS_INTRCN, 
+				a.BBS_NM, a.action, a.tel, a.members, a.fullnm, a.MBER_NM, a.MBER_ID, 
+				a.TMPLAT_ID, d.TMPLAT_NM, d.TMPLAT_COURS, a.FILE_ATCH_POSBL_AT, a.ATCH_POSBL_FILE_NUMBER,
+				a.ATCH_POSBL_FILE_SIZE, a.REPLY_POSBL_AT, a.FRST_REGISTER_ID, e.USER_NM as FRST_REGISTER_NM, a.CMMNTY_ID,
+				a.USE_AT, DATE_FORMAT(a.FRST_REGIST_PNTTM, '%Y-%m-%d') as FRST_REGIST_PNTTM, BLOG_ID				
+				,(SELECT IFNULL(USE_AT,'N') FROM COMTNBBSUSE 
+					WHERE BBS_ID = #{bbsId} 
+					AND TRGET_ID IN (#{uniqId}, 'SYSTEM_DEFAULT_BOARD')
+				) as AUTH_FLAG
+			FROM
+				COMTNBBSMASTER a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN COMTNTMPLATINFO d
+				ON a.TMPLAT_ID = d.TMPLAT_ID				
+			LEFT OUTER JOIN COMVNUSERMASTER e
+				ON a.FRST_REGISTER_ID = e.ESNTL_ID		
+			WHERE a.BBS_ID = #{bbsId}
+						
+	</select>
+	
+	<select id="selectBBSMasterDetailHp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterDetail">
+		
+			SELECT 
+				a.BBS_ID, a.BBS_TY_CODE, b.CODE_NM as BBS_TY_CODE_NM, a.BBS_INTRCN, 
+				a.BBS_NM, a.action, a.tel, a.members, a.fullnm, a.MBER_NM, a.MBER_ID, 
+				a.TMPLAT_ID, d.TMPLAT_NM, d.TMPLAT_COURS, a.FILE_ATCH_POSBL_AT, a.ATCH_POSBL_FILE_NUMBER,
+				a.ATCH_POSBL_FILE_SIZE, a.REPLY_POSBL_AT, a.FRST_REGISTER_ID, e.USER_NM as FRST_REGISTER_NM, a.CMMNTY_ID,
+				a.USE_AT, DATE_FORMAT(a.FRST_REGIST_PNTTM, '%Y-%m-%d') as FRST_REGIST_PNTTM, BLOG_ID				
+				,(SELECT IFNULL(USE_AT,'N') FROM COMTNBBSUSE 
+					WHERE BBS_ID = #{bbsId} 
+					AND TRGET_ID IN (#{uniqId}, 'SYSTEM_DEFAULT_BOARD')
+				) as AUTH_FLAG
+			FROM
+				helpRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN COMTNTMPLATINFO d
+				ON a.TMPLAT_ID = d.TMPLAT_ID				
+			LEFT OUTER JOIN COMVNUSERMASTER e
+				ON a.FRST_REGISTER_ID = e.ESNTL_ID		
+			WHERE a.BBS_ID = #{bbsId}
+						
+	</select>
+	<select id="selectBBSMasterDetailNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterDetail">
+		
+			SELECT 
+				a.BBS_ID, a.BBS_TY_CODE, b.CODE_NM as BBS_TY_CODE_NM, a.BBS_INTRCN, 
+				a.BBS_NM, a.action, a.tel, a.members, a.fullnm, a.MBER_NM, a.MBER_ID, 
+				a.TMPLAT_ID, d.TMPLAT_NM, d.TMPLAT_COURS, a.FILE_ATCH_POSBL_AT, a.ATCH_POSBL_FILE_NUMBER,
+				a.ATCH_POSBL_FILE_SIZE, a.REPLY_POSBL_AT, a.FRST_REGISTER_ID, e.USER_NM as FRST_REGISTER_NM, a.CMMNTY_ID,
+				a.USE_AT, DATE_FORMAT(a.FRST_REGIST_PNTTM, '%Y-%m-%d') as FRST_REGIST_PNTTM, BLOG_ID				
+				,(SELECT IFNULL(USE_AT,'N') FROM COMTNBBSUSE 
+					WHERE BBS_ID = #{bbsId} 
+					AND TRGET_ID IN (#{uniqId}, 'SYSTEM_DEFAULT_BOARD')
+				) as AUTH_FLAG
+			FROM
+				noticeRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN COMTNTMPLATINFO d
+				ON a.TMPLAT_ID = d.TMPLAT_ID				
+			LEFT OUTER JOIN COMVNUSERMASTER e
+				ON a.FRST_REGISTER_ID = e.ESNTL_ID		
+			WHERE a.BBS_ID = #{bbsId}
+						
+	</select>
+	
+	<select id="updateBBSMasterView" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterDetail">
+			
+			SELECT a.BBS_ID, a.MBER_ID, a.MBER_NM as member, a.SBSCRB_DE,
+(SELECT BBS_ID from COMTNBBSMASTER WHERE BBS_NM=a.BBS_NM) M_BBS_ID,
+(SELECT BBS_NM from COMTNBBSMASTER WHERE BBS_NM=a.BBS_NM) bbsNm,
+(SELECT MBER_NM from COMTNBBSMASTER WHERE BBS_NM=a.BBS_NM) mberNm,
+(SELECT tel from COMTNBBSMASTER WHERE BBS_NM=a.BBS_NM) tel,
+(SELECT members from COMTNBBSMASTER WHERE BBS_NM=a.BBS_NM) members,
+(SELECT fullnm from COMTNBBSMASTER WHERE BBS_NM=a.BBS_NM) fullnm,
+(SELECT action from COMTNBBSMASTER WHERE BBS_NM=a.BBS_NM) action
+FROM 
+	BBSMEMBER a
+		WHERE a.BBS_ID = #{bbsId}
+			AND a.MBER_ID= #{mberId} 
+						
+	</select>
+	
+	<select id="updateBBSMasterView2Hp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterDetail">
+			
+			SELECT a.BBS_ID, a.MBER_ID, a.MBER_NM as member, a.SBSCRB_DE, a.contents,
+(SELECT BBS_ID from helpRequest WHERE BBS_NM=a.BBS_NM) M_BBS_ID,
+(SELECT BBS_NM from helpRequest WHERE BBS_NM=a.BBS_NM) bbsNm,
+(SELECT MBER_NM from helpRequest WHERE BBS_NM=a.BBS_NM) mberNm,
+(SELECT tel from helpRequest WHERE BBS_NM=a.BBS_NM) tel,
+(SELECT members from helpRequest WHERE BBS_NM=a.BBS_NM) members,
+(SELECT fullnm from helpRequest WHERE BBS_NM=a.BBS_NM) fullnm,
+(SELECT action from helpRequest WHERE BBS_NM=a.BBS_NM) action
+FROM 
+	helpResponse a
+		WHERE a.BBS_ID = #{bbsId}
+			AND a.MBER_ID= #{mberId} 
+						
+	</select>
+	
+	<select id="updateBBSMasterView2Nt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterDetail">
+			
+			SELECT a.BBS_ID, a.MBER_ID, a.MBER_NM as member, a.SBSCRB_DE, a.contents,
+(SELECT BBS_ID from noticeRequest WHERE BBS_NM=a.BBS_NM) M_BBS_ID,
+(SELECT BBS_NM from noticeRequest WHERE BBS_NM=a.BBS_NM) bbsNm,
+(SELECT MBER_NM from noticeRequest WHERE BBS_NM=a.BBS_NM) mberNm,
+(SELECT tel from noticeRequest WHERE BBS_NM=a.BBS_NM) tel,
+(SELECT members from noticeRequest WHERE BBS_NM=a.BBS_NM) members,
+(SELECT fullnm from noticeRequest WHERE BBS_NM=a.BBS_NM) fullnm,
+(SELECT action from noticeRequest WHERE BBS_NM=a.BBS_NM) action
+FROM 
+	noticeResponse a
+		WHERE a.BBS_ID = #{bbsId}
+			AND a.MBER_ID= #{mberId} 
+						
+	</select>
+	
+	<select id="updateMnaResponse" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterDetail">
+			
+			SELECT a.BBS_ID, a.MBER_ID, a.MBER_NM as member, a.SBSCRB_DE, a.contents,
+(SELECT BBS_ID from mnaRequest WHERE BBS_NM=a.BBS_NM) M_BBS_ID,
+(SELECT BBS_NM from mnaRequest WHERE BBS_NM=a.BBS_NM) bbsNm,
+(SELECT MBER_NM from mnaRequest WHERE BBS_NM=a.BBS_NM) mberNm,
+(SELECT tel from mnaRequest WHERE BBS_NM=a.BBS_NM) tel,
+(SELECT members from mnaRequest WHERE BBS_NM=a.BBS_NM) members,
+(SELECT fullnm from mnaRequest WHERE BBS_NM=a.BBS_NM) fullnm,
+(SELECT action from mnaRequest WHERE BBS_NM=a.BBS_NM) action
+FROM 
+	mnaResponse a
+		WHERE a.BBS_ID = #{bbsId}
+			AND a.MBER_ID= #{mberId} 
+						
+	</select>
+	
+	<select id="selectMnaDetail" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="mNaDetail">
+		
+			SELECT 
+				a.no, a.st, a.city, a.district, a.mnaNm, a.party, a.Watchdog, a.hosu, a.telMna,
+				a.faxMna, a.addLocal, a.telLocal, a.faxLocal, a.email, a.homepage, a.facebook, a.twit, a.utube,
+				d.TMPLAT_NM, d.TMPLAT_COURS, 
+				e.USER_NM as FRST_REGISTER_NM, 
+				DATE_FORMAT(a.FRST_REGIST_PNTTM, '%Y-%m-%d') as FRST_REGIST_PNTTM, 
+				a.BLOG_ID, (SELECT IFNULL(USE_AT,'N') FROM COMTNBBSUSE 
+					WHERE BBS_ID = #{no} 
+					AND TRGET_ID IN (#{uniqId}, 'SYSTEM_DEFAULT_BOARD')
+				) as AUTH_FLAG,
+				(select MBER_NM from distwach where no = #{no} ) as MBER_NM,
+				(select MBER_ID from distwach where no = #{no} ) as MBER_ID
+			FROM
+				cngrsmn a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN COMTNTMPLATINFO d
+				ON a.TMPLAT_ID = d.TMPLAT_ID				
+			LEFT OUTER JOIN COMVNUSERMASTER e
+				ON a.FRST_REGISTER_ID = e.ESNTL_ID		
+			WHERE a.no = #{no}						
+	</select>
+	
+	<select id="selectGepyosoDetail" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="mNaDetail">		
+			SELECT 
+				a.no, a.city, a.gepyoso, a.members
+			FROM
+				gepyoso a
+			WHERE a.no = #{no}						
+	</select>
+	
+	<select id="selectSajeonTuDetail" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="mNaDetail">		
+			SELECT 
+				a.no, a.city, a.gungu, a.tupyoso, a.day, a.ampm
+			FROM
+				sajeonSeonTu a
+			WHERE a.no = #{no}						
+	</select>
+	
+		<select id="selectPollWatchDetail" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="mNaDetail">
+			SELECT 
+				a.no, a.pllngplce, a.bldngNm, a.MBER_ID,
+				a.MBER_NM, a.no_mberid, a.SBSCRB_DE,
+				(SELECT voteAddr FROM pollingPlace WHERE no=#{no}) voteAddr
+			FROM
+				pollWatch a
+				WHERE NO=#{no} 				
+	</select>
+	
+	<select id="selectPolPlaceDetail" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="mNaDetail">
+			SELECT 
+				a.no, a.dong, a.pllngplce, a.ampm, a.bldngNm, voteAddr
+			FROM
+				pollingPlace a
+				WHERE no=#{no} 				
+	</select>
+	
+	<select id="updatePolPlaceWatchView" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="mNaDetail">
+			SELECT 
+				a.no, a.pllngplce, a.bldngNm, a.MBER_ID,
+				a.MBER_NM, a.no_mberid, a.SBSCRB_DE,
+				(SELECT voteAddr FROM pollingPlace WHERE no=#{no}) voteAddr
+			FROM
+				pollWatch a
+				WHERE NO=#{no} AND MBER_ID=#{mberId}		
+	</select>
+	<select id="updateGepyosoResponseView" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="mNaDetail">
+			SELECT 
+				a.no, a.city, a.gepyoso, a.MBER_ID,
+				a.MBER_NM, a.SBSCRB_DE
+			FROM
+				gepyosoResponse a
+				WHERE NO=#{no} AND MBER_ID=#{mberId}		
+	</select>
+	<select id="updateSajeonResponseView" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="mNaDetail">
+			SELECT 
+				a.no, a.city, a.gungu, a.tupyoso, a.ampm, a.MBER_ID,
+				a.MBER_NM, a.SBSCRB_DE
+			FROM
+				sajeonResponse a
+				WHERE NO=#{no} AND MBER_ID=#{mberId}		
+	</select>
+	
+ 	<update id="updateBBSMaster" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+ 		
+			UPDATE COMTNBBSMASTER SET 
+				<!-- BBS_NM = #{bbsNm}, -->
+				BBS_NM = #{BBS_NM},
+				tel = #{tel},
+				fullnm = #{fullnm},
+				members = #{members},
+				action = #{action},
+				BBS_INTRCN = #{bbsIntrcn}, 
+				BBS_TY_CODE = #{bbsTyCode},
+				FILE_ATCH_POSBL_AT = #{fileAtchPosblAt},
+				ATCH_POSBL_FILE_NUMBER = #{atchPosblFileNumber},
+				TMPLAT_ID = #{tmplatId},		
+				LAST_UPDUSR_ID = #{lastUpdusrId},
+				LAST_UPDT_PNTTM = SYSDATE(),
+				USE_AT = #{useAt}
+			WHERE BBS_ID = #{bbsId}
+ 		
+ 	</update>
+ 	
+ 	<update id="updateBBSMasterHp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 		
+			UPDATE helpRequest SET 
+				BBS_NM = #{BBS_NM},
+				tel = #{tel},
+				fullnm = #{fullnm},
+				members = #{members},
+				action = #{action},
+				BBS_INTRCN = #{bbsIntrcn}, 
+				BBS_TY_CODE = #{bbsTyCode},
+				FILE_ATCH_POSBL_AT = #{fileAtchPosblAt},
+				ATCH_POSBL_FILE_NUMBER = #{atchPosblFileNumber},
+				TMPLAT_ID = #{tmplatId},		
+				LAST_UPDUSR_ID = #{lastUpdusrId},
+				LAST_UPDT_PNTTM = SYSDATE(),
+				USE_AT = #{useAt}
+			WHERE BBS_ID = #{bbsId}		
+ 	</update>
+ 	<update id="updateBBSMasterNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+			UPDATE noticeRequest SET 
+				BBS_NM = #{BBS_NM},
+				tel = #{tel},
+				fullnm = #{fullnm},
+				members = #{members},
+				action = #{action},
+				BBS_INTRCN = #{bbsIntrcn}, 
+				BBS_TY_CODE = #{bbsTyCode},
+				FILE_ATCH_POSBL_AT = #{fileAtchPosblAt},
+				ATCH_POSBL_FILE_NUMBER = #{atchPosblFileNumber},
+				TMPLAT_ID = #{tmplatId},		
+				LAST_UPDUSR_ID = #{lastUpdusrId},
+				LAST_UPDT_PNTTM = SYSDATE(),
+				USE_AT = #{useAt}
+			WHERE BBS_ID = #{bbsId}	
+ 	</update>
+ 	<update id="updateResponseHp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 		
+			UPDATE helpResponse SET 
+				contents = #{contents},
+				SBSCRB_DE = SYSDATE()
+			WHERE BBS_ID = #{bbsId} 		
+ 	</update>
+ 	
+ 	<update id="updateResponseNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">		
+			UPDATE noticeResponse SET 
+				contents = #{contents},
+				SBSCRB_DE = SYSDATE()
+			WHERE BBS_ID = #{bbsId}	
+ 	</update>
+
+ 	<update id="deleteBBSMaster" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 
+			DELETE 
+  				FROM COMTNBBSMASTER 
+			WHERE BBS_ID = #{bbsId}  
+ 	</update>
+ 	
+ 	<update id="deleteBBSMasterHp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 
+			DELETE 
+  				FROM helpRequest 
+			WHERE BBS_ID = #{bbsId}  
+ 	</update>
+ 	
+ 	<update id="deleteBBSMasterNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 
+			DELETE 
+  				FROM noticeRequest 
+			WHERE BBS_ID = #{bbsId}  
+ 	</update>
+ 	
+ 	<update id="deleteBBSMberInf" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 
+			DELETE 
+  				FROM BBSMEMBER
+			WHERE BBS_ID = #{bbsId}  
+ 	</update>
+ 	
+ 	<update id="deleteBBSMberInfHp" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 
+			DELETE 
+  				FROM helpResponse
+			WHERE BBS_ID = #{bbsId}  
+ 	</update>
+ 	
+ 	<update id="deleteBBSMberInfNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 
+			DELETE 
+  				FROM noticeResponse
+			WHERE BBS_ID = #{bbsId}  
+ 	</update>
+ 	
+ 	<update id="deleteMnaResponse" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 
+			DELETE 
+  				FROM mnaResponse
+			WHERE BBS_ID = #{bbsId}  
+ 	</update>
+ 	
+ 	<update id="deletePolWatchDog" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 
+			DELETE 
+  				FROM pollWatch 
+			WHERE no = #{no} AND MBER_ID=#{mberId}
+ 	</update>
+ 	
+ 	<update id="deleteGepyosoResponse" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 
+			DELETE 
+  				FROM gepyosoResponse 
+			WHERE no = #{no} AND MBER_ID=#{mberId}
+ 	</update>
+ 	
+ 	<update id="deleteSajeonResponse" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 
+			DELETE 
+  				FROM sajeonResponse 
+			WHERE no = #{no} AND MBER_ID=#{mberId}
+ 	</update>
+ 	
+ 	<update id="deleteMnaWatchDog" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO"> 
+			DELETE 
+  				FROM distwach 
+			WHERE no = #{no} AND MBER_ID=#{mberId}
+ 	</update>
+ 	
+ 	<select id="selectMnaListInfsList" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.st, a.no, a.city, a.district, a.district2, a.party, a.mnaNm,
+				a.mnaNmHan, a.Watchdog
+			FROM
+				cngrsmn a
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	
+				(a.district = #{cmmntyId} OR a.district IS not null) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.district LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.party LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+			<if test="searchCnd == 2">AND
+					a.mnaNm LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			ORDER BY a.city, a.district   
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectMnaListTotCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+			FROM
+				cngrsmn a
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	
+				(a.district = #{cmmntyId}  OR a.district IS not null) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.district LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.party LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			<if test="searchCnd == 2">AND
+					a.mnaNm LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+	</select>
+	
+	<select id="selectGepyoso" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.no, a.city, a.gepyoso, a.members
+			FROM
+				gepyoso a
+			WHERE 1=1
+			<!-- <if test="cmmntyId != null">
+				AND	
+				(a.city = #{cmmntyId} OR a.city IS not null) 		
+			</if> -->
+			<if test="searchCnd == 0">AND
+					a.city LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.gepyoso LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+			ORDER BY a.city, a.gepyoso   
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectGepyosoCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+			FROM
+				gepyoso a
+			WHERE 1=1
+			<!-- <if test="cmmntyId != null">
+				AND	
+				(a.city = #{cmmntyId}  OR a.city IS not null) 		
+			</if> -->
+			<if test="searchCnd == 0">AND
+					a.city LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.gepyoso LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+	</select>
+	
+	
+	
+	<select id="selectSajeonSeon" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.no, a.city, a.gungu, a.tupyoso, a.day, a.ampm
+			FROM
+				sajeonSeonTu a
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	
+				(a.city = #{cmmntyId} OR a.city IS not null) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.city LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+			<if test="searchCnd == 1">AND
+					a.gungu LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+			<if test="searchCnd == 2">AND
+					a.tupyoso LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>		
+			ORDER BY a.city, a.gungu, a.tupyoso, a.day, a.ampm  
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectSajeonSeonCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+			FROM
+				sajeonSeonTu a
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	
+				(a.city = #{cmmntyId} OR a.city IS not null) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.city LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+			<if test="searchCnd == 1">AND
+					a.gungu LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+			<if test="searchCnd == 2">AND
+					a.tupyoso LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>	
+	</select>
+	
+	<select id="selectPolPlaceListInfsList" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.no, a.st, a.gubun, a.city, a.gungu, a.dong, a.pllngplce,
+				a.bldngNm, a.voteAddr, a.ampm
+			FROM
+				pollingPlace a
+			WHERE 1=1
+			<!-- <if test="cmmntyId != null">
+				AND	
+				(a.voteAddr = #{cmmntyId} OR a.voteAddr IS not null) 		
+			</if> -->
+			<if test="searchCnd == 0">AND
+					a.voteAddr LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.voteAddr LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+			<if test="searchCnd == 2">AND
+					a.dong LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			ORDER BY a.voteAddr, a.pllngplce, a.ampm   
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectPolPlaceListTotCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+			FROM
+				pollingPlace a
+			WHERE 1=1
+			<!-- <if test="cmmntyId != null">
+				AND	
+				(a.voteAddr = #{cmmntyId}  OR a.voteAddr IS not null) 		
+			</if> -->
+			<if test="searchCnd == 0">AND
+					a.voteAddr LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.voteAddr LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			<if test="searchCnd == 2">AND
+					a.dong LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+	</select>
+	
+	<select id="selecthelpRequestListInfs" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.BBS_ID, a.BBS_TY_CODE, b.CODE_NM as BBS_TY_CODE_NM,
+				a.BBS_NM, e.telNo, f.BBS_NM as BBS_NMST,
+				a.TMPLAT_ID, a.USE_AT, a.MBER_NM, a.MBER_ID,
+				a.tel, a.members, a.fullnm, a.action,
+				d.USER_NM AS FRST_REGISTER_NM
+			FROM
+				helpRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT ='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID 
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			LEFT OUTER JOIN
+				COMTNBBSMASTER f
+				ON a.MBER_ID = f.MBER_ID
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			ORDER BY a.FRST_REGIST_PNTTM DESC 
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}					
+	</select>
+	
+	<select id="selecthelpRequestListInfsNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.BBS_ID, a.BBS_TY_CODE, b.CODE_NM as BBS_TY_CODE_NM,
+				a.BBS_NM, e.telNo, f.BBS_NM as BBS_NMST,
+				a.TMPLAT_ID, a.USE_AT, a.MBER_NM, a.MBER_ID,
+				a.tel, a.members, a.fullnm, a.action,
+				d.USER_NM AS FRST_REGISTER_NM
+			FROM
+				noticeRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT ='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID 
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			LEFT OUTER JOIN
+				COMTNBBSMASTER f
+				ON a.MBER_ID = f.MBER_ID
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			ORDER BY a.FRST_REGIST_PNTTM DESC 
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}					
+	</select>
+	
+	<select id="selecthelpRequestListTotCntNt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">		
+			
+			SELECT 
+				COUNT(*)
+			FROM
+				noticeRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			LEFT OUTER JOIN
+				COMTNBBSMASTER f
+				ON a.MBER_ID = f.MBER_ID
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+		
+	</select>
+	
+	<select id="selectMnaRequest" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.BBS_ID, a.BBS_TY_CODE, b.CODE_NM as BBS_TY_CODE_NM,
+				a.BBS_NM, e.telNo, f.BBS_NM as BBS_NMST,
+				a.TMPLAT_ID, a.USE_AT, a.MBER_NM, a.MBER_ID,
+				a.tel, a.members, a.fullnm, a.action,
+				d.USER_NM AS FRST_REGISTER_NM
+			FROM
+				mnaRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT ='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID 
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			LEFT OUTER JOIN
+				COMTNBBSMASTER f
+				ON a.MBER_ID = f.MBER_ID
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			ORDER BY a.FRST_REGIST_PNTTM DESC 
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}					
+	</select>
+	
+	<select id="selectMnaRequestCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">		
+			
+			SELECT 
+				COUNT(*)
+			FROM
+				mnaRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			LEFT OUTER JOIN
+				COMTNBBSMASTER f
+				ON a.MBER_ID = f.MBER_ID
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+		
+	</select>
+	
+	<select id="selecthelpRequestListTotCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">		
+			
+			SELECT 
+				COUNT(*)
+			FROM
+				helpRequest a
+			LEFT OUTER JOIN 
+				(SELECT CODE_ID, CODE, CODE_NM FROM 
+					COMTCCMMNDETAILCODE WHERE CODE_ID = 'COM101' AND USE_AT='Y') b
+				ON a.BBS_TY_CODE = b.CODE
+			LEFT OUTER JOIN
+				(SELECT ESNTL_ID, USER_ID, USER_NM FROM COMVNUSERMASTER) d
+				ON a.FRST_REGISTER_ID = d.ESNTL_ID
+			LEFT OUTER JOIN
+				COMTNGNRLMBER e
+				ON a.MBER_ID = e.MBER_ID 
+			LEFT OUTER JOIN
+				COMTNBBSMASTER f
+				ON a.MBER_ID = f.MBER_ID
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	<!-- a.CMMNTY_ID = #{cmmntyId} -->
+				(a.CMMNTY_ID = #{cmmntyId}  or a.CMMNTY_ID IS NULL) 		
+			</if>
+			<if test="searchCnd == 0">AND
+					a.BBS_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					<!-- a.BBS_INTRCN LIKE CONCAT ('%', #{searchWrd},'%')  -->
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+		
+	</select>
+	
+	<select id="selectPollWatchListInfs" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.no, a.pllngplce, a.ampm, a.bldngNm, a.MBER_ID,
+				a.MBER_NM, a.no_mberid, a.SBSCRB_DE
+			FROM
+				pollWatch a
+			WHERE 1=1
+			<!-- <if test="cmmntyId != null">
+				AND	
+				(a.pllngplce = #{cmmntyId} OR a.pllngplce IS not null) 		
+			</if> -->
+			<if test="searchCnd == 0">AND
+					a.pllngplce LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			ORDER BY a.SBSCRB_DE desc, a.MBER_NM , a.pllngplce
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}					
+	</select>	
+	
+	<select id="selectPollWatchListTotCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">		
+			SELECT 
+				COUNT(*)
+			FROM
+				pollWatch a
+			WHERE 1=1
+			<!-- <if test="cmmntyId != null">
+				AND	
+				(a.pllngplce = #{cmmntyId} OR a.pllngplce IS not null) 		
+			</if> -->
+			<if test="searchCnd == 0">AND
+					a.pllngplce LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+	</select>
+		
+	<insert id="insertDistwach" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">		
+			INSERT INTO distwach
+			(st, city, no, district, party, mnaNm, MBER_ID, MBER_NM, no_mberid, 
+				SBSCRB_DE, RECOMMENDER_ID, RECOMMENDER_NAME
+				)
+			VALUES
+			( #{st}, #{city}, #{no}, #{district}, #{party}, #{mnaNm}, #{MBER_ID}, 
+			  	#{MBER_NM}, #{no_mberid}, SYSDATE(), #{RECOMMENDER_ID}, #{RECOMMENDER_NAME}  
+			 	)					
+	</insert>
+	
+	<insert id="insertGepyosoResponse" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">	
+			INSERT INTO gepyosoResponse
+			(city, no, gepyoso, members, MBER_ID, MBER_NM, no_mberid, 
+				SBSCRB_DE, RECOMMENDER_ID, RECOMMENDER_NAME
+				)
+			VALUES
+			( #{city}, #{no}, #{gepyoso}, #{members}, #{MBER_ID}, 
+			  	#{MBER_NM}, #{no_mberid}, SYSDATE(), #{RECOMMENDER_ID}, #{RECOMMENDER_NAME}  
+			 	)				
+	</insert>
+	
+		<insert id="insertSajeonTuResponse" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">	
+			INSERT INTO sajeonResponse
+			( no, city, gungu, tupyoso, ampm, members, MBER_ID, MBER_NM, no_mberid, 
+				SBSCRB_DE, RECOMMENDER_ID, RECOMMENDER_NAME
+				)
+			VALUES
+			( #{no}, #{city}, #{gungu}, #{tupyoso}, #{ampm}, #{members}, #{MBER_ID}, 
+			  	#{MBER_NM}, #{no_mberid}, SYSDATE(), #{RECOMMENDER_ID}, #{RECOMMENDER_NAME}  
+			 	)				
+	</insert>
+	
+	<insert id="insertPollWatch" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO">
+		
+			INSERT INTO pollWatch
+			(no, pllngplce, ampm, bldngNm, MBER_ID, MBER_NM, no_mberid, 
+				SBSCRB_DE, RECOMMENDER_ID, RECOMMENDER_NAME
+				)
+			VALUES
+			(#{no}, #{pllngplce}, #{ampm}, #{bldngNm}, #{MBER_ID}, 
+			  	#{MBER_NM}, #{no_mberid}, SYSDATE(), #{RECOMMENDER_ID}, #{RECOMMENDER_NAME}  
+			 	)			
+		
+	</insert>
+	
+	<select id="selectDistwachListInfsDetail" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.st, a.no, a.city, a.district, a.party, a.mnaNm,
+				a.MBER_ID, a.MBER_NM,
+				(SELECT addLocal FROM cngrsmn WHERE no= #{no}  ) addLocal,
+				(SELECT telLocal FROM cngrsmn WHERE no= #{no}  ) telLocal,
+				(SELECT faxLocal FROM cngrsmn WHERE no= #{no}  ) faxLocal,
+				(SELECT email FROM cngrsmn WHERE no= #{no}  ) email,
+				(SELECT homepage FROM cngrsmn WHERE no= #{no}  ) homepage,
+				(SELECT facebook FROM cngrsmn WHERE no= #{no}  ) facebook,
+				(SELECT twit FROM cngrsmn WHERE no= #{no}  ) twit,
+				(SELECT utube FROM cngrsmn WHERE no= #{no}  ) utube
+			FROM
+				distwach a
+			WHERE 1=1
+			AND no= #{no}
+			<if test="searchCnd == 0">AND
+					a.district LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.mnaNm LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			<if test="searchCnd == 2">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+			ORDER BY a.city, a.district 
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>	
+	
+	<select id="selectDistwachListInfs" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.st, a.no, a.city, a.district, a.party, a.mnaNm,
+				a.MBER_ID, a.MBER_NM
+			FROM
+				distwach a
+			WHERE 1=1
+			<if test="searchCnd == 0">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.district LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			<if test="searchCnd == 2">AND
+					a.mnaNm LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+			ORDER BY a.MBER_NM, a.district, a.mnaNm
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectDistwachListTotCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+			FROM
+				distwach a
+			WHERE 1=1
+			AND no= #{no}
+			<if test="searchCnd == 0">AND
+					a.district LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			<if test="searchCnd == 1">AND
+					a.mnaNm LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>	
+			<if test="searchCnd == 2">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 							
+			</if>
+	</select>
+	
+	<select id="selectGepyosoResponseInfs" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.no, a.city, a.gepyoso, a.members,
+				a.MBER_ID, a.MBER_NM
+			FROM
+				gepyosoResponse a
+			WHERE 1=1
+			<if test="searchCnd == 0">AND
+			    a.gepyoso LIKE CONCAT ('%', #{searchWrd},'%') 				 	
+			</if>
+			<if test="searchCnd == 1">AND
+			    a.MBER_NM  LIKE CONCAT ('%', #{searchWrd},'%')												
+			</if>	
+			ORDER BY a.SBSCRB_DE desc, a.MBER_NM, a.gepyoso
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectGepyosoResponseListTotCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+			FROM
+				gepyosoResponse a
+			WHERE 1=1
+			<!-- AND no= #{no} -->
+			<if test="searchCnd == 0">AND
+					a.gepyoso  LIKE CONCAT ('%', #{searchWrd},'%') 	
+			</if>	
+			<if test="searchCnd == 1">AND
+					a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 						
+			</if>
+	</select>
+	
+	<select id="selectSajeonTuResponseInfs" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="boardMasterList">
+		
+			SELECT 
+				a.no, a.city, a.gungu, a.tupyoso, a.members, a.ampm, 
+				a.MBER_ID, a.MBER_NM
+			FROM
+				sajeonResponse a
+			WHERE 1=1
+			<!-- <if test="cmmntyId != null">
+				AND	
+				(a.city = #{cmmntyId} OR a.city IS not null) 		
+			</if> -->
+			<if test="searchCnd == 0">AND
+			    a.city LIKE CONCAT ('%', #{searchWrd},'%') 				 	
+			</if>
+			<if test="searchCnd == 1">AND
+			    a.gungu LIKE CONCAT ('%', #{searchWrd},'%')												
+			</if>
+			<if test="searchCnd == 2">AND
+			    a.tupyoso LIKE CONCAT ('%', #{searchWrd},'%')												
+			</if>
+			<if test="searchCnd == 3">AND
+			    a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 				 	
+			</if>
+			ORDER BY  a.city, a.gungu, a.tupyoso, a.MBER_NM
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectSajeonTuResponseListTotCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+			FROM
+				sajeonResponse a
+			WHERE 1=1
+			<if test="cmmntyId != null">
+				AND	
+				(a.city = #{cmmntyId} OR a.city IS not null) 		
+			</if>
+			<if test="searchCnd == 0">AND
+			    a.city LIKE CONCAT ('%', #{searchWrd},'%') 				 	
+			</if>
+			<if test="searchCnd == 1">AND
+			    a.gungu LIKE CONCAT ('%', #{searchWrd},'%')												
+			</if>
+			<if test="searchCnd == 2">AND
+			    a.tupyoso LIKE CONCAT ('%', #{searchWrd},'%')												
+			</if>
+			<if test="searchCnd == 3">AND
+			    a.MBER_NM LIKE CONCAT ('%', #{searchWrd},'%') 				 	
+			</if>
+	</select>
+ 	
+ 	<select id="selectBlogMasterList" parameterType="egovframework.com.cop.bbs.service.BlogVO" resultMap="BlogList">
+		
+			SELECT 
+				a.BLOG_ID, a.BLOG_NM, a.USE_AT, a.REGIST_SE_CODE, 
+				c.CODE_NM as REGIST_SE_CODE_NM, 
+				DATE_FORMAT(a.FRST_REGIST_PNTTM, '%Y-%m-%d') as FRST_REGIST_PNTTM,
+				a.FRST_REGISTER_ID, 
+				b.USER_NM as FRST_REGISTER_NM,
+				a.BBS_ID, d.AUTHOR_CODE
+			FROM
+				COMTNBLOG a
+			LEFT OUTER JOIN COMVNUSERMASTER b
+				ON a.FRST_REGISTER_ID = b.ESNTL_ID
+			LEFT OUTER JOIN COMTCCMMNDETAILCODE c
+				ON a.REGIST_SE_CODE = c.CODE
+			LEFT OUTER JOIN COMTNEMPLYRSCRTYESTBS d
+				ON a.FRST_REGISTER_ID = d.SCRTY_DTRMN_TRGET_ID
+			WHERE c.CODE_ID = 'COM001'
+		
+			<if test="searchCnd == 0">AND
+					a.BLOG_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+					
+			ORDER BY a.FRST_REGIST_PNTTM DESC 
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+						
+	</select>
+	
+	<select id="selectBlogMasterListTotCnt" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				COUNT(*)
+			FROM
+				COMTNBLOG a
+			LEFT OUTER JOIN COMVNUSERMASTER b
+				ON a.FRST_REGISTER_ID = b.ESNTL_ID
+			LEFT OUTER JOIN COMTCCMMNDETAILCODE c
+				ON a.REGIST_SE_CODE = c.CODE
+			LEFT OUTER JOIN COMTNEMPLYRSCRTYESTBS d
+				ON a.FRST_REGISTER_ID = d.SCRTY_DTRMN_TRGET_ID
+			WHERE c.CODE_ID = 'COM001'
+			
+			<if test="searchCnd == 0">AND
+					a.BLOG_NM LIKE CONCAT ('%', #{searchWrd},'%') 		
+			</if>
+			
+	</select>
+	
+	<select id="selectBlogDetail" parameterType="egovframework.com.cop.bbs.service.BlogVO" resultMap="selectBlogDetail">
+		
+			SELECT 
+				BLOG_ID, BBS_ID, BLOG_NM, BLOG_INTRCN
+			FROM
+				COMTNBLOG 
+			WHERE BLOG_ID = #{blogId}	
+			
+	</select>
+ 	
+ 	<select id="checkExistUser" parameterType="egovframework.com.cop.bbs.service.BlogVO" resultType="java.lang.Integer">
+		
+			SELECT 
+				<!-- COUNT(FRST_REGISTER_ID) -->
+				COUNT(*)
+			FROM
+				COMTNBLOG
+			WHERE FRST_REGISTER_ID = #{frstRegisterId} 
+		
+	</select>
+	
+ 	<select id="checkExistUser2" parameterType="egovframework.com.cop.bbs.service.BlogVO" resultMap="selectBlogUser">
+		
+			SELECT 
+				FRST_REGISTER_ID
+			FROM
+				COMTNBLOG
+			WHERE FRST_REGISTER_ID = #{frstRegisterId} 
+		
+	</select>
+	
+	<insert id="insertBoardBlogUserRqst" parameterType="egovframework.com.cop.bbs.service.BlogUser">
+
+			INSERT INTO COMTNBLOGUSER
+			(BLOG_ID, EMPLYR_ID, MNGR_AT, SBSCRB_DE,
+			MBER_STTUS, USE_AT, FRST_REGIST_PNTTM, FRST_REGISTER_ID)
+			VALUES (#{blogId}, #{emplyrId}, #{mngrAt}, SYSDATE(),
+			#{mberSttus}, #{useAt}, SYSDATE(), #{frstRegisterId})
+	
+	</insert>
+	
+	<insert id="insertBlogMaster" parameterType="egovframework.com.cop.bbs.service.BlogVO">
+		
+			INSERT INTO COMTNBLOG
+			(BLOG_ID, BLOG_NM, BLOG_INTRCN, REGIST_SE_CODE, 
+			 TMPLAT_ID, USE_AT, FRST_REGISTER_ID, FRST_REGIST_PNTTM, BBS_ID, BLOG_AT)
+			VALUES
+			(#{blogId}, #{blogNm}, #{blogIntrcn}, #{registSeCode}, 
+			 #{tmplatId}, #{useAt}, #{frstRegisterId}, SYSDATE(), #{bbsId}, #{blogAt})
+		
+	</insert>
+	
+	<select id="selectBlogListPortlet" parameterType="egovframework.com.cop.bbs.service.BlogVO" resultMap="BlogListPortlet">
+		
+			SELECT 
+				BLOG_ID, BBS_ID, BLOG_NM, FRST_REGIST_PNTTM
+			FROM
+				COMTNBLOG
+			WHERE USE_AT = 'Y'
+			ORDER BY FRST_REGIST_PNTTM DESC
+		
+	</select>
+	
+	<select id="selectBBSListPortlet" parameterType="egovframework.com.cop.bbs.service.BoardMasterVO" resultMap="BBSListPortlet">
+		
+			SELECT 
+				BBS_ID, BBS_TY_CODE, BBS_NM, FRST_REGIST_PNTTM
+			FROM
+	helpRequestTER
+			WHERE USE_AT = 'Y' 
+			ORDER BY FRST_REGIST_PNTTM DESC
+		
+	</select>	
+
+</mapper>

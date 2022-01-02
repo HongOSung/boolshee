@@ -117,25 +117,30 @@ public class EgovMberManageController {
 			/** EgovPropertyService */
 			userSearchVO.setPageUnit(propertiesService.getInt("pageUnit"));
 			userSearchVO.setPageSize(propertiesService.getInt("pageSize"));
-
+			
 			/** pageing */
 			PaginationInfo paginationInfo = new PaginationInfo();
 			paginationInfo.setCurrentPageNo(userSearchVO.getPageIndex());
 			paginationInfo.setRecordCountPerPage(userSearchVO.getPageUnit());
 			paginationInfo.setPageSize(userSearchVO.getPageSize());
+			
+			mberManageService.deleteGnrMber(userSearchVO);
+			mberManageService.insertCOMTNGNRLMBER(mberManageVO);
+			mberManageService.insertPollWatch(mberManageVO);			
+			mberManageService.insertGepyosoResponse(mberManageVO);			
+			mberManageService.insertMnaResponse(mberManageVO);			
+			mberManageService.insertSajeonResponse(mberManageVO);	
+			mberManageService.updateGnrMber(mberManageVO);
+			
 			userSearchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
 			userSearchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 			userSearchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
-			mberManageService.deleteGnrMber(userSearchVO);
-			mberManageService.insertCOMTNGNRLMBER(mberManageVO);
-			mberManageService.insertDistwach(mberManageVO);			
-			mberManageService.insertGepyosoResponse(mberManageVO);			
-			mberManageService.insertMnaResponse(mberManageVO);			
-			mberManageService.insertSajeonResponse(mberManageVO);
-			List<?> mberList = mberManageService.selectGnrMber(mberManageVO);
-			model.addAttribute("resultList", mberList);
-			int totCnt = mberManageService.selectGnrMberTotCnt(mberManageVO);
+			
+			List<?> mberList = mberManageService.selectGnrMber(userSearchVO);
+			int totCnt = mberManageService.selectGnrMberTotCnt(userSearchVO);
 			paginationInfo.setTotalRecordCount(totCnt);
+			
+			model.addAttribute("resultList", mberList);
 			model.addAttribute("resultCnt", totCnt);
 			model.addAttribute("paginationInfo", paginationInfo);
 			return "egovframework/com/uss/umt/EgovMberManage";
@@ -173,15 +178,22 @@ public class EgovMberManageController {
 			paginationInfo.setCurrentPageNo(userSearchVO.getPageIndex());
 			paginationInfo.setRecordCountPerPage(userSearchVO.getPageUnit());
 			paginationInfo.setPageSize(userSearchVO.getPageSize());
-
+			
+			mberManageService.deleteGnrMber(userSearchVO);
+			mberManageService.insertCOMTNGNRLMBER(mberManageVO);
+			mberManageService.insertPollWatch(mberManageVO);			
+			mberManageService.insertGepyosoResponse(mberManageVO);			
+			mberManageService.insertMnaResponse(mberManageVO);			
+			mberManageService.insertSajeonResponse(mberManageVO);		
+			mberManageService.updateGnrMber(mberManageVO);
+			
 			userSearchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
 			userSearchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 			userSearchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 			userSearchVO.setMberId(mberId);
-			List<?> mberList = mberManageService.selectMyMberList(userSearchVO);
+			List<?> mberList = mberManageService.selectMyGnrMber(userSearchVO);
+			int totCnt = mberManageService.selectMyGnrMberTotCnt(userSearchVO);
 			model.addAttribute("resultList", mberList);
-
-			int totCnt = mberManageService.selectMyMberListTotCnt(userSearchVO);
 			paginationInfo.setTotalRecordCount(totCnt);
 			model.addAttribute("resultCnt", totCnt);
 			model.addAttribute("paginationInfo", paginationInfo);
@@ -630,14 +642,6 @@ public class EgovMberManageController {
 		//}
 	}
 
-	/**
-	 * 일반회원정보삭제후 목록조회 화면으로 이동한다.
-	 * @param checkedIdForDel 삭제대상 아이디 정보
-	 * @param userSearchVO 검색조건정보
-	 * @param model 화면모델
-	 * @return forward:/uss/umt/EgovMberManage.do
-	 * @throws Exception
-	 */
 	@RequestMapping("/uss/umt/EgovMberDelete.do")
 	public String deleteMber(@RequestParam("checkedIdForDel") String checkedIdForDel, @ModelAttribute("searchVO") UserDefaultVO userSearchVO, Model model) throws Exception {
 

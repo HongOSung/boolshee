@@ -67,6 +67,11 @@ public class CmmnDetailCode implements Serializable {
   	 * 오전/오후
   	 */
       private String ampm = "";
+      
+      /*
+    	 * 오전/오후
+    	 */
+        private String day = "";
     
     /*
 	 * 선거구
@@ -496,6 +501,14 @@ public class CmmnDetailCode implements Serializable {
 
 	public void setAmpm(String ampm) {
 		this.ampm = ampm;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
 	}
 
 

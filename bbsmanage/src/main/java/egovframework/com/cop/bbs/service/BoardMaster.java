@@ -41,6 +41,9 @@ public class BoardMaster implements Serializable {
     /** 사전투표소 */
     private String tupyoso = "";
     
+    /** 사전투표 날짜 */
+    private String day = "";
+    
     /** 오전/오후 */
     private String ampm = "";
     
@@ -1011,5 +1014,13 @@ public class BoardMaster implements Serializable {
 
 	public void setAmpm(String ampm) {
 		this.ampm = ampm;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
 	}
 }
