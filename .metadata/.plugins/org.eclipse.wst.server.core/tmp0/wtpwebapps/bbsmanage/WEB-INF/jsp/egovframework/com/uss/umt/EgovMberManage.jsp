@@ -173,7 +173,7 @@ function fn_egov_search_bbssj(){
 	</colgroup>
 	<thead>
 	<tr>
-		<th><spring:message code="comUssUmt.userManageList.memberNm" />=</th><!-- 회원이름 -->
+		<th><spring:message code="comUssUmt.userManageList.memberNm" /></th><!-- 회원이름 -->
 		<th><spring:message code="comUssUmt.userManageList.gubun" /></th><!-- 구분 -->
 		<th><spring:message code="comUssUmt.userManageList.num11" /></th><!--11 시도 -->		
 		<th><spring:message code="comUssUmt.userManageList.tupyoso" /><!-- 투표소 -->

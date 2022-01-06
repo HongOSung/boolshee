@@ -113,7 +113,7 @@ public class EgovMberManageController {
 
 		String mberId = loginVO.getId();
 		request.setAttribute("mberId", mberId); 
-		if(mberId.equals("oshong34") || mberId.equals("joseph0510") ){
+		if(mberId.equals("joseph0510")|| mberId.equals("oshong34") ){// 
 			/** EgovPropertyService */
 			userSearchVO.setPageUnit(propertiesService.getInt("pageUnit"));
 			userSearchVO.setPageSize(propertiesService.getInt("pageSize"));

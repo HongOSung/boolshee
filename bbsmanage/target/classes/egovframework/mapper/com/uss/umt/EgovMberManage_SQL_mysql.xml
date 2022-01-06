@@ -180,6 +180,7 @@ FROM(
                     MIDDLE_TELNO     ,
                     telNo,
                     birthDay,
+                    sex,
                     SBSCRB_DE        )
               VALUES(
                     #{uniqId},
@@ -204,6 +205,7 @@ FROM(
                     #{middleTelno},
                     #{telNo},
                     #{birthDay},
+                    #{sex},
                     sysdate()  )                 
     </insert>
     
@@ -310,6 +312,7 @@ FROM sajeonResponse;
                 MIDDLE_TELNO     middleTelno,
                 telNo            telNo,
                 birthDay         birthDay,
+                sex         sex,
                 SBSCRB_DE        sbscrbDe,
                 LOCK_AT          lockAt
             FROM COMTNGNRLMBER
@@ -371,7 +374,8 @@ FROM sajeonResponse;
                 MBER_FXNUM       = #{mberFxnum},
                 MBER_EMAIL_ADRES = #{mberEmailAdres},
                 MIDDLE_TELNO     = #{middleTelno},
-                birthDay		 = #{birthDay}
+                birthDay		 = #{birthDay},
+                sex		 = #{sex}
                 <!-- WHERE ESNTL_ID=#{uniqId}, 홍오성 아래와 같이-->
             WHERE MBER_ID=#{mberId}
         

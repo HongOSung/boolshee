@@ -2,29 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="fnLinkPage" key="selection"/>
-		<item value="false" key="casesensitive"/>
+		<item value="loginVO" key="selection"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="fnLinkPage"/>
-			<item value="fnSearch"/>
-			<item value="fn_egov_search_bbssj"/>
-			<item value="userSearchVO"/>
-			<item value="mberVO"/>
-			<item value="uss/umt/EgovMyMberManage.do"/>
-			<item value="searchVO"/>
-			<item value="fn_egov_select_linkPage"/>
-			<item value="cop/bbs/selectSajeonSeon.do"/>
-			<item value="updateGnrMber"/>
-			<item value="update"/>
-			<item value="/cop/bbs/selectSajeonSeon.do"/>
-			<item value="cop/bbs/insertSajeonTuView.do"/>
-			<item value="cop/bbs/updateSajeonTuView.do"/>
-			<item value="selectMyGnrMber"/>
+			<item value="loginVO"/>
+			<item value="EgovPwdDplctCnfirmAjax"/>
+			<item value="bbsId"/>
+			<item value="sModelName"/>
+			<item value="sScriptYn"/>
+			<item value="inputTxt"/>
+			<item value="/uat/uia/egovLoginUsr.do"/>
+			<item value="id"/>
+			<item value="egovLoginUsr"/>
+			<item value="uat/uia/egovLoginUsr.do"/>
+			<item value="/uat/uia/searchId.do"/>
+			<item value="fnSearchId"/>
+			<item value="uat/uia/egovIdPasswordSearch.do"/>
+			<item value="id_S"/>
+			<item value="mberId"/>
 		</list>
 		<list key="replacehistory">
+			<item value="sex"/>
 			<item value="userSearchVO"/>
 			<item value="mberVO"/>
 			<item value="5%"/>
@@ -36,8 +37,8 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="288" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
-		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="1277" key="DIALOG_X_ORIGIN"/>
-		<item value="648" key="DIALOG_Y_ORIGIN"/>
+		<item value="373" key="DIALOG_HEIGHT"/>
+		<item value="1176" key="DIALOG_X_ORIGIN"/>
+		<item value="337" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

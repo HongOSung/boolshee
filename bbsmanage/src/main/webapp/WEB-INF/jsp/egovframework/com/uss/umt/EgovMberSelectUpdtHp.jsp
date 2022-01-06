@@ -143,12 +143,14 @@ function fncGoAfterErrorPage(){
 			</td>
 		</tr>
 		<!-- 생년월일 -->
-		<c:set var="title"><spring:message code="comUssUmt.userManageRegist.yyyymmdd"/></c:set>
+		<c:set var="title"><spring:message code="comUssUmt.userManageRegist.yyyymmddsex"/></c:set>
 		<tr>
 			<th><label for="birthDay">${title}</label> <span class="pilsu">*</span></th>
 			<td class="left">
                     <form:input path="birthDay" id="birthDay" cssClass="txaIpUmt" size="8" maxlength="8" style="width:55px;"/>
+                    - <form:input path="sex" id="sex" cssClass="txaIpUmt" size="5" maxlength="1" style="width:7px;"/>
                     <div><form:errors path="birthDay" cssClass="error" /></div>
+                    <div><form:errors path="sex" cssClass="error" /></div>
 			</td>
 		</tr>
 		<!-- 주소 -->

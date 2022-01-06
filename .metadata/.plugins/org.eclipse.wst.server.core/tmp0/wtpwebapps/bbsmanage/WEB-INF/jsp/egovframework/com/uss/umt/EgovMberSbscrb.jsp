@@ -193,7 +193,19 @@ function kkk(form) {
 	    			    	alert("전화 중간번호를 입력하세요"); return false;
 	    			    } else if (form.endTelno.value =="") {
 	    			    	 alert("전화 끝번호를 입력하세요"); return false; 
+	    			    } else if (form.year.value =="") {
+	    			    	alert("년도를 입력하세요"); return false;
+	    			    } else if (form.month.value =="") {
+	    			    	alert("월을 입력하세요"); return false;
+	    			    } else if (form.day.value =="") {
+	    			    	 alert("날짜를 입력하세요"); return false; 
+	    			    } else if (form.sex.value =="") {
+	    			    	 alert("성별을 입력하세요"); return false; 
+	    			    } else if (form.adres.value =="") {
+	    			    	 alert("주소를 입력하세요"); return false; 
+	    			    ////////////////////////////////
 	    				}
+		    			
 				}else{ 
 					alert("<spring:message code="fail.common.recommenderId" />"); // 추천자 아이디를 찾을수 없습니다.
 					return false;
@@ -230,6 +242,12 @@ function siche_next22() {
 function siche_next3() {
 	if (document.mberManageVO.month.value.length==2) {
 	document.mberManageVO.day.focus();
+	return;
+	}
+}
+function siche_next33() {
+	if (document.mberManageVO.day.value.length==2) {
+	document.mberManageVO.sex.focus();
 	return;
 	}
 }
@@ -331,22 +349,27 @@ function enterkey() {
 			</td>
 		</tr>
 		<!-- 생년월일 -->
-		<c:set var="title"><spring:message code="comUssUmt.userManageRegist.yyyymmdd"/></c:set>
+		<c:set var="title"><spring:message code="comUssUmt.userManageRegist.yyyymmddsex"/></c:set>
 		<tr>
 			<th><label for="birthDay">${title}</label>  </th>
 			<td class="left">
                     <form:input path="year" id="year" cssClass="txaIpUmt" size="5" maxlength="4" style="width:27px;" onkeyup="siche_next22()" />
                     . <form:input path="month" id="month" cssClass="txaIpUmt" size="5" maxlength="2" style="width:16px;" onkeyup="siche_next3()" />
-                    . <form:input path="day" id="day" cssClass="txaIpUmt" size="5" maxlength="2" style="width:16px;" /><font color='blue'> <b>년도</font> 4자리</b>&nbsp;&nbsp;<font color='red'><b>월</font> 두자리</b>&nbsp;&nbsp;<font color='blue'><b>날짜 </font>두자리</b>를 입력합니다.
+                    . <form:input path="day" id="day" cssClass="txaIpUmt" size="5" maxlength="2" style="width:16px;" onkeyup="siche_next33()" />
+                    . <form:input path="sex" id="sex" cssClass="txaIpUmt" size="5" maxlength="1" style="width:10px;" />
+                    <font color='blue'> <b>년도</font> 4자리</b>&nbsp;&nbsp;<font color='red'><b>월</font> 두자리,</b>&nbsp;&nbsp;<font color='blue'><b>날짜 </font>두자리,</b>
+                    <font color='red'> <b>성별</b></font><b><font color='blue'>(남자=1,</font><font color='blue'>여자=2)</font> 숫자, 한자리</b>를 입력합니다.
+        
                     <div><form:errors path="year" cssClass="error" /></div>
                     <div><form:errors path="month" cssClass="error" /></div>
                     <div><form:errors path="day" cssClass="error" /></div>
+                    <div><form:errors path="sex" cssClass="error" /></div>
 			</td>
 		</tr>
 		<c:set var="title"><spring:message code="comUssUmt.userManageRegist.addr"/></c:set>
 		<tr>
 			<th><label for="adres">${title}</label>  </th>
-			<td class="left">도로명 또는 지번의<b> <font color='red'>동까지만</font></b>입력합니다.
+			<td class="left"><b>도로명 또는 지번을</b>입력합니다.
                     <form:input path="adres" id="adres" title="${title} ${inputTxt}" cssClass="txaIpUmt" size="70" maxlength="100" />
                     <div><form:errors path="adres" cssClass="error" /></div>
 			</td>

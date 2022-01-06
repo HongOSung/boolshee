@@ -321,7 +321,10 @@ function fn_egov_inquire_bbsdetail74() {
 				<c:set var="title"><spring:message code="comUatUia.loginForm.id"/></c:set>
 				<li>
 					<label for="id">${title}</label>
-					<input type="text" name="id" id="id" maxlength="10" title="${title} ${inputTxt}" placeholder="${title} ${inputTxt}">
+					<%				
+					String id=request.getParameter("id");
+					%>
+					<input type="text" name="id" id="id" value="<%=id%>" maxlength="10"  title="${title} ${inputTxt}" placeholder="${title} ${inputTxt}">
 				</li>
 				<!-- 비밀번호 -->
 				<c:set var="title"><spring:message code="comUatUia.loginForm.pw"/></c:set>

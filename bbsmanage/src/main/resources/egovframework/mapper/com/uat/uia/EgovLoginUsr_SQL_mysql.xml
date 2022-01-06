@@ -179,7 +179,7 @@
 			SELECT mber_id AS id
 			  FROM COMTNGNRLMBER
 			 WHERE mber_nm = #{name}
-			   AND mber_email_adres = #{email}
+			  <!--  AND mber_email_adres = #{email} -->
 			   AND mber_sttus = 'P'
 			
 		</if>
@@ -214,9 +214,9 @@
 			  FROM COMTNGNRLMBER
 			 WHERE mber_id = #{id}
 			   AND mber_nm = #{name}
-			   AND mber_email_adres = #{email}
+			   <!-- AND mber_email_adres = #{email}
 			   AND password_hint = #{passwordHint}
-			   AND password_cnsr = #{passwordCnsr}
+			   AND password_cnsr = #{passwordCnsr} -->
 			   AND mber_sttus = 'P'
 			
 		</if>

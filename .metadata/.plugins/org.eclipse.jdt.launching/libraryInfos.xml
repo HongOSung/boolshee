@@ -19,4 +19,23 @@
 <entry path="C:\eGovFrame-3.9.0\bin\jdk8u242-b08\jre\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
+<libraryInfo home="E:\00eGov\eGovFrame-3.9.0\bin\eclipse" version="1.8.0_242">
+<bootpath>
+<entry path="E:\00eGov\eGovFrame-3.9.0\bin\eclipse\jre\lib\resources.jar"/>
+<entry path="E:\00eGov\eGovFrame-3.9.0\bin\eclipse\jre\lib\rt.jar"/>
+<entry path="E:\00eGov\eGovFrame-3.9.0\bin\eclipse\jre\lib\sunrsasign.jar"/>
+<entry path="E:\00eGov\eGovFrame-3.9.0\bin\eclipse\jre\lib\jsse.jar"/>
+<entry path="E:\00eGov\eGovFrame-3.9.0\bin\eclipse\jre\lib\jce.jar"/>
+<entry path="E:\00eGov\eGovFrame-3.9.0\bin\eclipse\jre\lib\charsets.jar"/>
+<entry path="E:\00eGov\eGovFrame-3.9.0\bin\eclipse\jre\lib\jfr.jar"/>
+<entry path="E:\00eGov\eGovFrame-3.9.0\bin\eclipse\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\00eGov\eGovFrame-3.9.0\bin\eclipse\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\00eGov\eGovFrame-3.9.0\bin\eclipse\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
 </libraryInfos>

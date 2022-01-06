@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gpki.gpkiapi.cert.X509Certificate;
 import com.gpki.servlet.GPKIHttpServletRequest;
@@ -97,13 +98,11 @@ public class EgovLoginController {
 		if (EgovComponentChecker.hasComponent("mberManageService")) {
 			model.addAttribute("useMemberManage", "true");
 		}
-				
 		//권한체크시 에러 페이지 이동
 		String auth_error =  request.getParameter("auth_error") == null ? "" : (String)request.getParameter("auth_error");
 		if(auth_error != null && auth_error.equals("1")){
 			return "egovframework/com/cmm/error/accessDenied";
 		}
-
 		/*
 		GPKIHttpServletResponse gpkiresponse = null;
 		GPKIHttpServletRequest gpkirequest = null;
@@ -124,7 +123,7 @@ public class EgovLoginController {
 		if (message!=null) model.addAttribute("message", message);
 		String mberId = request.getParameter("mberId");
 		request.setAttribute("id", mberId);
-		//System.err.println("========================id="+mberId);
+		System.err.println("========================id="+mberId);
 		return "egovframework/com/uat/uia/EgovLoginUsr";
 	}
 
@@ -443,13 +442,11 @@ public class EgovLoginController {
 	 */
 	@RequestMapping(value = "/uat/uia/egovIdPasswordSearch.do")
 	public String idPasswordSearchView(ModelMap model) throws Exception {
-
 		// 1. 비밀번호 힌트 공통코드 조회
 		ComDefaultCodeVO vo = new ComDefaultCodeVO();
 		vo.setCodeId("COM022");
 		List<?> code = cmmUseService.selectCmmCodeDetail(vo);
 		model.addAttribute("pwhtCdList", code);
-
 		return "egovframework/com/uat/uia/EgovIdPasswordSearch";
 	}
 
@@ -472,7 +469,7 @@ public class EgovLoginController {
 	@RequestMapping(value = "/uat/uia/searchId.do")
 	public String searchId(@ModelAttribute("loginVO") LoginVO loginVO, ModelMap model) throws Exception {
 
-		if (loginVO == null || loginVO.getName() == null || loginVO.getName().equals("") && loginVO.getEmail() == null || loginVO.getEmail().equals("")
+		if (loginVO == null || loginVO.getName() == null || loginVO.getName().equals("") //&& loginVO.getEmail() == null || loginVO.getEmail().equals("")
 				&& loginVO.getUserSe() == null || loginVO.getUserSe().equals("")) {
 			return "egovframework/com/cmm/egovError";
 		}
@@ -483,7 +480,9 @@ public class EgovLoginController {
 
 		if (resultVO != null && resultVO.getId() != null && !resultVO.getId().equals("")) {
 
-			model.addAttribute("resultInfo", "아이디는 " + resultVO.getId() + " 입니다.");
+			model.addAttribute("resultInfo", "아이디는<b><font color='red' size='4em'>" + resultVO.getId() + "</font></b>입니다.");
+			String id=resultVO.getId();
+			model.addAttribute("id_S", id);
 			return "egovframework/com/uat/uia/EgovIdPasswordResult";
 		} else {
 			model.addAttribute("resultInfo", egovMessageSource.getMessage("fail.common.idsearch"));
@@ -501,23 +500,14 @@ public class EgovLoginController {
 	public String searchPassword(@ModelAttribute("loginVO") LoginVO loginVO, ModelMap model) throws Exception {
 
 		//KISA 보안약점 조치 (2018-10-29, 윤창원)
-		/*
-		System.out.println("-----------loginVO="+loginVO.toString());
-		System.out.println("-----------loginVO.getId()="+loginVO.getId());
-		System.out.println("-----------loginVO.getName()="+loginVO.getName());
-		System.out.println("-----------loginVO.getEmail()="+loginVO.getEmail());
-		System.out.println("-----------loginVO.getPasswordHint()="+loginVO.getPasswordHint());
-		System.out.println("-----------loginVO.getPasswordCnsr()="+loginVO.getPasswordCnsr());
-		System.out.println("-----------loginVO.getUserSe()="+loginVO.getUserSe());*/
 		if (loginVO == null || loginVO.getId() == null 
 				|| loginVO.getId().equals("") && loginVO.getName() == null 
-				|| "".equals(loginVO.getName()) && loginVO.getEmail() == null
-				|| loginVO.getEmail().equals("") && loginVO.getPasswordHint() == null 
-				|| "".equals(loginVO.getPasswordHint()) && loginVO.getPasswordCnsr() == null
-				|| "".equals(loginVO.getPasswordCnsr()) && loginVO.getUserSe() == null 
+				|| "".equals(loginVO.getName()) //&& loginVO.getEmail() == null
+				//|| loginVO.getEmail().equals("") //&& loginVO.getPasswordHint() == null 
+				//|| "".equals(loginVO.getPasswordHint()) && loginVO.getPasswordCnsr() == null
+				//|| "".equals(loginVO.getPasswordCnsr()) && loginVO.getUserSe() == null 
 				|| "".equals(loginVO.getUserSe())) {
-			////System.err.println("==========/uat/uia/searchPassword.do => egovError=> /com/cmm/error/egovError======");
-			//System.exit(0);
+
 			return "egovframework/com/cmm/error/egovError";
 		}
 
@@ -529,7 +519,9 @@ public class EgovLoginController {
 		if (resultVO != null && resultVO.getId() != null && !resultVO.getId().equals("")) {
 		//if (result) {
 			//model.addAttribute("resultInfo", "임시 비밀번호를 발송하였습니다.");
-			model.addAttribute("resultInfo", "임시 비밀번호는 "+ resultVO.getNewPassword()+"입니다.");
+			model.addAttribute("resultInfo", "임시 비밀번호는<font color='blue' size='4em'><b>"+ resultVO.getNewPassword()+
+					"</b></font>입니다. <br> 로그인 하셔서[<font color='red' size='3em'><b>자기 정보 변경</b></font>]에서 임시비밀번호를 편하신 비밀번호로 변경하여 사용하실 수 있습니다.");
+			
 			return "egovframework/com/uat/uia/EgovIdPasswordResult";
 		} else {
 			model.addAttribute("resultInfo", egovMessageSource.getMessage("fail.common.pwsearch"));

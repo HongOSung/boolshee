@@ -77,8 +77,8 @@ function fnCheckUsrPassword(userSe) {
 function fnSearchId() {
 	if (document.idForm.name.value =="") {
 		alert("<spring:message code="comUatUia.idPw.validate.name" />");
-	} else if (document.idForm.email.value =="") {
-		alert("<spring:message code="comUatUia.idPw.validate.email" />");
+	//} else if (document.idForm.email.value =="") {
+	//	alert("<spring:message code="comUatUia.idPw.validate.email" />");
 	} else {
 		document.idForm.submit();
 	}
@@ -89,12 +89,12 @@ function fnSearchPassword() {
 		alert("<spring:message code="comUatUia.idPw.validate.id" />");
 	} else if (document.passwordForm.name.value =="") {
 		alert("<spring:message code="comUatUia.idPw.validate.name" />");
-	} else if (document.passwordForm.email.value =="") {
-		alert("<spring:message code="comUatUia.idPw.validate.email" />");
-	} else if (document.passwordForm.passwordHint.value =="") {
-		alert("<spring:message code="comUatUia.idPw.validate.passwordHint" />");
-	} else if (document.passwordForm.passwordCnsr.value =="") {
-		alert("<spring:message code="comUatUia.idPw.validate.passwordCnsr" />");
+	//} else if (document.passwordForm.email.value =="") {
+	//	alert("<spring:message code="comUatUia.idPw.validate.email" />");
+	//} else if (document.passwordForm.passwordHint.value =="") {
+	//	alert("<spring:message code="comUatUia.idPw.validate.passwordHint" />");
+	//} else if (document.passwordForm.passwordCnsr.value =="") {
+	//	alert("<spring:message code="comUatUia.idPw.validate.passwordCnsr" />");
 	} else {
 		document.passwordForm.submit();
 	}
@@ -126,10 +126,10 @@ function fnSearchPassword() {
 					<label for="name"><spring:message code="comUatUia.idPw.name" /></label>
 					<input type="text" name="name" maxlength="20" title="<spring:message code="comUatUia.idPw.name" />" placeholder="<spring:message code="comUatUia.idPw.name" />" />
 				</li>
-				<li>
+				<!-- <li>
 					<label for="email"><spring:message code="comUatUia.idPw.email" /></label>
 					<input type="text" name="email" maxlength="30" title="<spring:message code="comUatUia.idPw.email" />" placeholder="<spring:message code="comUatUia.idPw.email" />" />
-				</li>
+				</li> -->
 				<li>
 					<input type="button" class="btn_login" onClick="fnSearchId();" value="<spring:message code="comUatUia.idPw.searchId" />" />
 				</li>
@@ -162,7 +162,7 @@ function fnSearchPassword() {
 					<label for="name"><spring:message code="comUatUia.idPw.name" /></label>
 					<input type="text" name="name" maxlength="20" title="<spring:message code="comUatUia.idPw.name" />" placeholder="<spring:message code="comUatUia.idPw.name" />" />
 				</li>
-				<li>
+				<%--<li>
 					<label for="email"><spring:message code="comUatUia.idPw.email" /></label>
 					<input type="text" name="email" maxlength="30" title="<spring:message code="comUatUia.idPw.email" />" placeholder="<spring:message code="comUatUia.idPw.email" />" />
 				</li>
@@ -177,7 +177,7 @@ function fnSearchPassword() {
 				<li>
 					<label for="passwordCnsr"><spring:message code="comUatUia.idPw.passwordCnsr" /></label>
 					<input type="text" name="passwordCnsr" maxlength="50" title="<spring:message code="comUatUia.idPw.passwordCnsr" />" placeholder="<spring:message code="comUatUia.idPw.passwordCnsr" />">
-				</li>
+				</li> --%>
 				<li>
 					<input type="button" class="btn_login" onClick="fnSearchPassword();" value="<spring:message code="comUatUia.idPw.searchPassword" />">
 				</li>

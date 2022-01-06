@@ -65,6 +65,10 @@ public class MberManageVO extends UserDefaultVO{
 	 */
 	private String day;
 	/**
+	 * 성별
+	 */
+	private String sex;
+	/**
 	 * 생년월일
 	 */
 	private String birthDay;
@@ -518,6 +522,12 @@ public class MberManageVO extends UserDefaultVO{
 	}
 	public void setTelNoCk(String telNoCk) {
 		this.telNoCk = telNoCk;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 }

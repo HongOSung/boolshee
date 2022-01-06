@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%
  /**
-  * @Class Name : EgovIdPasswordResult.jsp
+  * @Class Name : EgovIdPasswordResult.jsp  
   * @Description : 아이디/비밀번호 찾기 결과화면
   * @Modification Information
   * @
@@ -41,13 +41,14 @@ function fncGoIdPwd(){
 }
 
 function fncGoLogin(){
-	location.href="<c:url value='/uat/uia/egovLoginUsr.do'/>";
+	location.href="<c:url value='/uat/uia/egovLoginUsr.do/>";
 }
 
 </script>
 </head>
 <body>
 	<div style="width: 1000px; margin: 50px auto 50px;">
+	<%--<p style="font-size: 18px; color: #000; margin-bottom: 10px; "><img src="<c:url value='/images/egovframework/com/cmm/boolshee2.png' />" /></p> --%>
 	<p style="font-size: 18px; color: #000; margin-bottom: 10px; "><img src="<c:url value='/images/egovframework/com/cmm/boolshee2.png' />" width="100" height="50" /></p>
 	<div style="border: 0px solid #666; padding: 20px;">
 		<p style="color:red; margin-bottom: 8px; "></p>
@@ -59,6 +60,7 @@ function fncGoLogin(){
 					<p class="cont mb20">${resultInfo}<br /></p>
 					<span class="btn_style1 blue"><a href="javascript:fncGoIdPwd();"><spring:message code="comUatUia.idPasswordResult.searchIdPwd" /></a></span><!-- 아이디 및 비밀번호 찾기 -->
 					<span class="btn_style1 blue"><a href="javascript:fncGoLogin();"><spring:message code="comUatUia.loginForm.login" /></a></span><!-- 로그인 -->
+					<input name="id_S" type="hidden" value="${id_S}">
 				</div>
 			</div>
 		</div>

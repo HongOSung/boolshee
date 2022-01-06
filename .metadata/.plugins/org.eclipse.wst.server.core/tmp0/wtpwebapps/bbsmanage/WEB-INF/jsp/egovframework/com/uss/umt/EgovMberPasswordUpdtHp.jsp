@@ -94,7 +94,7 @@ function fncGoAfterErrorPage(){
 			</td>
 		</tr>
 		
-		<!-- 기존 비밀번호 -->
+		<!-- 기존 또는 비밀번호 찾기 받은 비밀번호 -->
 		<c:set var="title"><spring:message code="comUssUmt.userManagePasswordUpdt.oldPass" /></c:set>
 		<tr>
 			<th>${title}<span class="pilsu">*</span></th>
@@ -102,16 +102,16 @@ function fncGoAfterErrorPage(){
 				<input name="oldPassword" id="oldPassword" type="password" size="20" value=""  maxlength="100" >
 			</td>
 		</tr>
-		<!-- 비밀번호 -->
-		<c:set var="title"><spring:message code="comUssUmt.userManagePasswordUpdt.pass" /></c:set>
+		<!-- 새 비밀번호 -->
+		<c:set var="title"><spring:message code="comUssUmt.userManagePasswordUpdt.passNew" /></c:set>
 		<tr>
 			<th>${title}<span class="pilsu">*</span></th>
 			<td class="left">
 			    <input name="newPassword" id="newPassword" type="password" size="20" value=""  maxlength="100" >
 			</td>
 		</tr>
-		<!-- 비밀번호확인 -->
-		<c:set var="title"><spring:message code="comUssUmt.userManagePasswordUpdt.passConfirm" /></c:set>
+		<!-- 새 비밀번호확인 -->
+		<c:set var="title"><spring:message code="comUssUmt.userManagePasswordUpdt.passConfirmNew" /></c:set>
 		<tr>
 			<th>${title}<span class="pilsu">*</span></th>
 			<td class="left">

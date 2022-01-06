@@ -56,7 +56,7 @@ function fn_egov_search_bbssj(){
 function fn_egov_inquire_bbsdetail(no) {
 	// 사이트 키값(siteId) 셋팅.
 	//document.BBSMasterForm.members.value = no;
-	alert(no);
+	//alert(no);
   	document.BBSMasterForm.action = "<c:url value='/cop/bbs/updateSajeonTuView.do?no=${resultInfo.no}'/>";
   	///cop/bbs/updateSajeonTuView.do?no=${resultInfo.no}
   	document.BBSMasterForm.submit();
