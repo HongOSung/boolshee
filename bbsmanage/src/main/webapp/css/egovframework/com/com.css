@@ -279,7 +279,7 @@ width:100%;
 .wTable > thead > tr > th span.pilsu { color:#d0270b; font-weight:500; margin-left:3px; }
 .wTable > tbody > tr > th { padding-left:14px; border-bottom:1px solid #d9d9d9; text-align:left; background:#f4f4f4; }
 .wTable > tbody > tr > th.vtop { vertical-align:top; }
-.wTable > tbody > tr > th span.pilsu { color:#d0270b; font-weight:500; margin-left:3px; }
+.wTable > tbody > tr > th span.pilsu { color:#d0270b; font-weight:500; margin-left:3px; }츠
 .wTable > tbody > tr > td { text-align:center; padding:11px 5px; border-bottom:1px solid #d9d9d9; }
 .wTable > tbody > tr > td.left { text-align:left; padding:6px 8px; }
 .wTable > tbody > tr > td.left div .error  {color :#ff0000;}
@@ -288,7 +288,7 @@ width:100%;
 .wTable > tbody > tr > td.nopd div .error  {color :#ff0000; margin:0px 0px 0px 10px;}
 .wTable > tbody > tr > td.bold { text-align:left; font-size:14px; font-weight :bold;}
 .wTable > tbody > tr > td a:hover { text-decoration:underline; }
-.wTable > tbody > tr > td input[type=text] {width:99%; height:22px; }
+.wTable > tbody > tr > td input[type=text], .wTable > tbody > tr > td input[type=password] {width:99%; height:22px; }
 .wTable > tbody > tr > td input.tmp { width:160px; }
 /*.wTable > tbody > tr > td textarea { width:99%; height:50px; }*/   
 .wTable > tbody > tr > td textarea { resize: vertical; }
