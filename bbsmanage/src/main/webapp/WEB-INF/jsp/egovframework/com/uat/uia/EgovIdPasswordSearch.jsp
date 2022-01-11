@@ -8,6 +8,7 @@
   * @ -------    --------    ---------------------------
   * @ 2009.03.09    박지욱          최초 생성
   *   2016.06.13   김연호              표준프레임워크 v3.6 개선
+  *   2022.01.06   나연욱          idPw.css 수정
   *  @author 공통서비스팀
   *  @since 2009.03.09
   *  @version 1.0
@@ -107,83 +108,81 @@ function fnSearchPassword() {
 <noscript class="noScriptTitle"><spring:message code="common.noScriptTitle.msg" /></noscript>
 
 <div class="idpw_form">
-
 	<!-- 아이디 찾기 -->
 	<fieldset class="id_search">
-	<form name="idForm" action ="<c:url value='/uat/uia/searchId.do'/>" method="post">
-		<legend><spring:message code="comUatUia.idPw.searchId" /></legend>
-		<h2><spring:message code="comUatUia.idPw.searchId" /></h2>
-		<div class="login_type">
-			<ul>				
-				<%--<li><a id="idGnr" onClick="fnCheckUsrId('GNR');" class="on"><spring:message code="comUatUia.idPw.gnr" /></a></li>
-				<li><a id="idEnt" onClick="fnCheckUsrId('ENT');"><spring:message code="comUatUia.idPw.ent" /></a></li>
-				<li><a id="idUsr" onClick="fnCheckUsrId('USR');"><spring:message code="comUatUia.idPw.usr" /></a></li> --%>
-			</ul>
-		</div>
-		<div class="login_input">
-			<ul>
-				<li>
-					<label for="name"><spring:message code="comUatUia.idPw.name" /></label>
-					<input type="text" name="name" maxlength="20" title="<spring:message code="comUatUia.idPw.name" />" placeholder="<spring:message code="comUatUia.idPw.name" />" />
-				</li>
-				<!-- <li>
-					<label for="email"><spring:message code="comUatUia.idPw.email" /></label>
-					<input type="text" name="email" maxlength="30" title="<spring:message code="comUatUia.idPw.email" />" placeholder="<spring:message code="comUatUia.idPw.email" />" />
-				</li> -->
-				<li>
-					<input type="button" class="btn_login" onClick="fnSearchId();" value="<spring:message code="comUatUia.idPw.searchId" />" />
-				</li>
-			</ul>
-		</div>
-	<input name="userSe" type="hidden" value="GNR">
-	</form>
+		<form name="idForm" action ="<c:url value='/uat/uia/searchId.do'/>" method="post">
+			<legend><spring:message code="comUatUia.idPw.searchId" /></legend>
+			<h2><spring:message code="comUatUia.idPw.searchId" /></h2>
+			<div class="login_type">
+				<ul>				
+					<%--<li><a id="idGnr" onClick="fnCheckUsrId('GNR');" class="on"><spring:message code="comUatUia.idPw.gnr" /></a></li>
+					<li><a id="idEnt" onClick="fnCheckUsrId('ENT');"><spring:message code="comUatUia.idPw.ent" /></a></li>
+					<li><a id="idUsr" onClick="fnCheckUsrId('USR');"><spring:message code="comUatUia.idPw.usr" /></a></li> --%>
+				</ul>
+			</div>
+			<div class="login_input">
+				<ul>
+					<li>
+						<label for="name"><spring:message code="comUatUia.idPw.name" /></label>
+						<input type="text" name="name" maxlength="20" title="<spring:message code="comUatUia.idPw.name" />" placeholder="<spring:message code="comUatUia.idPw.name" />" />
+					</li>
+					<li>
+						<label for="email"><spring:message code="comUatUia.idPw.email" /></label>
+						<input type="text" name="email" maxlength="30" title="<spring:message code="comUatUia.idPw.email" />" placeholder="<spring:message code="comUatUia.idPw.email" />" />
+					</li>
+					<li>
+						<input type="button" class="btn_login" onClick="fnSearchId();" value="<spring:message code="comUatUia.idPw.searchId" />" />
+					</li>
+				</ul>
+			</div>
+			<input name="userSe" type="hidden" value="GNR">
+		</form>
 	</fieldset>
 	<!-- 아이디 찾기 //-->
-
 	<!-- 비밀번호 찾기 -->
 	<fieldset class="pw_search">
 		<form name="passwordForm" action ="<c:url value='/uat/uia/searchPassword.do'/>" method="post">
-		<legend><spring:message code="comUatUia.idPw.searchPassword" /></legend>
-		<h2><spring:message code="comUatUia.idPw.searchPassword" /></h2>
-		<div class="login_type">
-			<ul>				
-				<%--<li><a id="pwGnr" onClick="fnCheckUsrPassword('GNR');" class="on"><spring:message code="comUatUia.idPw.gnr" /></a></li>
-				<li><a id="pwEnt" onClick="fnCheckUsrPassword('ENT');"><spring:message code="comUatUia.idPw.ent" /></a></li>
-				<li><a id="pwUsr" onClick="fnCheckUsrPassword('USR');"><spring:message code="comUatUia.idPw.usr" /></a></li> --%>
-			</ul>
-		</div>
-		<div class="login_input">
-			<ul>
-				<li>
-					<label for="id"><spring:message code="comUatUia.idPw.id" /></label>
-					<input type="text" name="id" maxlength="15" title="<spring:message code="comUatUia.idPw.id" />" placeholder="<spring:message code="comUatUia.idPw.id" />" />
-				</li>
-				<li>
-					<label for="name"><spring:message code="comUatUia.idPw.name" /></label>
-					<input type="text" name="name" maxlength="20" title="<spring:message code="comUatUia.idPw.name" />" placeholder="<spring:message code="comUatUia.idPw.name" />" />
-				</li>
-				<%--<li>
-					<label for="email"><spring:message code="comUatUia.idPw.email" /></label>
-					<input type="text" name="email" maxlength="30" title="<spring:message code="comUatUia.idPw.email" />" placeholder="<spring:message code="comUatUia.idPw.email" />" />
-				</li>
-				<li>
-					<select name="passwordHint" title="<spring:message code="comUatUia.idPw.passwordHint" />">
-						<option selected value=''><spring:message code="comUatUia.idPw.validate.passwordHint" /></option><!-- --선택하세요-- -->
-						<c:forEach var="result" items="${pwhtCdList}" varStatus="status">
-						<option value='<c:out value="${result.code}"/>'><c:out value="${result.codeNm}"/></option>
-						</c:forEach>
-					</select>
-				</li>
-				<li>
-					<label for="passwordCnsr"><spring:message code="comUatUia.idPw.passwordCnsr" /></label>
-					<input type="text" name="passwordCnsr" maxlength="50" title="<spring:message code="comUatUia.idPw.passwordCnsr" />" placeholder="<spring:message code="comUatUia.idPw.passwordCnsr" />">
-				</li> --%>
-				<li>
-					<input type="button" class="btn_login" onClick="fnSearchPassword();" value="<spring:message code="comUatUia.idPw.searchPassword" />">
-				</li>
-			</ul>
-		</div>
-		<input name="userSe" type="hidden" value="GNR">
+			<legend><spring:message code="comUatUia.idPw.searchPassword" /></legend>
+			<h2><spring:message code="comUatUia.idPw.searchPassword" /></h2>
+			<div class="login_type">
+				<ul>				
+					<%--<li><a id="pwGnr" onClick="fnCheckUsrPassword('GNR');" class="on"><spring:message code="comUatUia.idPw.gnr" /></a></li>
+					<li><a id="pwEnt" onClick="fnCheckUsrPassword('ENT');"><spring:message code="comUatUia.idPw.ent" /></a></li>
+					<li><a id="pwUsr" onClick="fnCheckUsrPassword('USR');"><spring:message code="comUatUia.idPw.usr" /></a></li> --%>
+				</ul>
+			</div>
+			<div class="login_input">
+				<ul>
+					<li>
+						<label for="id"><spring:message code="comUatUia.idPw.id" /></label>
+						<input type="text" name="id" maxlength="15" title="<spring:message code="comUatUia.idPw.id" />" placeholder="<spring:message code="comUatUia.idPw.id" />" />
+					</li>
+					<li>
+						<label for="name"><spring:message code="comUatUia.idPw.name" /></label>
+						<input type="text" name="name" maxlength="20" title="<spring:message code="comUatUia.idPw.name" />" placeholder="<spring:message code="comUatUia.idPw.name" />" />
+					</li>
+					<li>
+						<label for="email"><spring:message code="comUatUia.idPw.email" /></label>
+						<input type="text" name="email" maxlength="30" title="<spring:message code="comUatUia.idPw.email" />" placeholder="<spring:message code="comUatUia.idPw.email" />" />
+					</li>
+					<li>
+						<select name="passwordHint" title="<spring:message code="comUatUia.idPw.passwordHint" />">
+							<option selected value=''><spring:message code="comUatUia.idPw.validate.passwordHint" /></option><!-- --선택하세요-- -->
+							<c:forEach var="result" items="${pwhtCdList}" varStatus="status">
+							<option value='<c:out value="${result.code}"/>'><c:out value="${result.codeNm}"/></option>
+							</c:forEach>
+						</select>
+					</li>
+					<li>
+						<label for="passwordCnsr"><spring:message code="comUatUia.idPw.passwordCnsr" /></label>
+						<input type="text" name="passwordCnsr" maxlength="50" title="<spring:message code="comUatUia.idPw.passwordCnsr" />" placeholder="<spring:message code="comUatUia.idPw.passwordCnsr" />">
+					</li>
+					<li>
+						<input type="button" class="btn_login" onClick="fnSearchPassword();" value="<spring:message code="comUatUia.idPw.searchPassword" />">
+					</li>
+				</ul>
+			</div>
+			<input name="userSe" type="hidden" value="GNR">
 		</form>
 	</fieldset>
 	<!-- 비밀번호 찾기 //-->

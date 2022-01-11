@@ -9,7 +9,7 @@
   * @ 2009.03.31    조재영          최초 생성
   *   2016.06.13    장동한          표준프레임워크 v3.6 개선
   *   2021.10.18    홍오성          불씨 시스템 약관 및 정보 동의
-  *
+  *   2022.01.06    나연욱          하단 버튼 수정, 정보이용내용에 동의합니다 수정
   *  @author 공통서비스 개발팀 조재영
   *  @since 2009.03.31
   *  @version 1.0
@@ -71,85 +71,71 @@ function fnDisAgree(){
 </script>
 </head>
 <body>
-<noscript class="noScriptTitle"><spring:message code="common.noScriptTitle.msg" /></noscript>
+	<noscript class="noScriptTitle"><spring:message code="common.noScriptTitle.msg" /></noscript>
+	<form name="QustnrManageForm" action="<c:url value='/sec/rnc/EgovRlnmCnfirm.do'/>" method="post">
+		<div class="agreeMent tableBox">
+			<!-- 타이틀 -->
+			<h2>${pageTitle}</h2>
+			
+	        <!-- content start -->
+	        <input type="hidden" name="sbscrbTy" value="${sbscrbTy}"/>
+	        <!-- 실명인증의 기본옵션은 주민번호 실명확인임 : 주민번호 실명인증 으로 가기위한 초기화값 -->
+	        <input type="hidden" name="ihidnum" value=""/>
+	        <input type="hidden" name="realname" value=""/>
+	        <!-- 실명인증후 다음단계에 대한 셋팅정보 -->
+	        <input type="hidden" name ="nextUrlName" value="button.subscribe"/>
+	        <input type="hidden" name ="nextUrl" value=
+	        <c:if test="${sbscrbTy == 'USR01'}">"/uss/umt/EgovMberSbscrbView.do"</c:if>
+	        <c:if test="${sbscrbTy == 'USR02'}">"/uss/umt/EgovEntrprsMberSbscrbView.do"</c:if>
+	        <c:if test="${empty sbscrbTy}">""</c:if>
+	        />
+	        <c:forEach var="result" items="${stplatList}" varStatus="status">
+		        <!-- 약관확인 -->
+		        <table class="wTable">
+			        <tr><th><spring:message code="comUssUmt.stplatCnfirmt.useStplatCn" /></th></tr>
+		            
+		            <tr>
+		                <td><label for="useStplatCn">
+		                <textarea id="useStplatCn" cols="120" rows="15"><c:out value="${result.useStplatCn}" escapeXml="false" /></textarea>
+		                </label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                	<label for="checkField" class="checkField">
+			                    <input name="checkField" type="checkbox" title=<spring:message code="comUssUmt.stplatCnfirmt.useStplatCn" /> ><spring:message code="comUssUmt.stplatCnfirmtMsg.useStplat" />
+			                    <input name="checkuseStplatCn" type="hidden" value="<c:out value='${result.useStplatId}'/>">
+		                    </label>
+		                </td>
+		            </tr>
+		        </table>
+		        <!-- 정보동의내용 -->
+		        <table class="wTable">
+		            <tr><th><spring:message code="comUssUmt.stplatCnfirmt.infoProvdAgreCn" /></th></tr>
+		            <tr>
+		                <td><label for="infoProvdAgeCn">
+		                <textarea id="infoProvdAgeCn" cols="120" rows="15"><c:out value="${result.infoProvdAgeCn}" escapeXml="false" /></textarea> 
+		                </label>
+		                <!-- <c:out value="${fn:replace(result.infoProvdAgeCn , crlf , '<br/>')}" escapeXml="false" /> -->
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                	<label for="checkField" class="checkField">
+			                    <input name="checkField" title="<spring:message code="comUssUmt.stplatCnfirmt.infoProvdAgreCn" />"  type="checkbox"><spring:message code="comUssUmt.stplatCnfirmtMsg.infoProvdAgre" />
+			                    <input name="checkinfoProvdAgeCn" type="hidden" value="<c:out value='${result.useStplatId}'/>">
+		                    </label>
+		                </td>
+		            </tr>
+		        </table>    
+	        </c:forEach>
+			<div class="btn">
+			  	<input type="submit" class="s_submit" onclick="fnAgree(); return false;" value="<spring:message code="button.agree" />" title="<spring:message code="button.agree" /> <spring:message code="button.save" />" />
+			  	<button class="btn_s2" onClick="fnDisAgree(); return false;" title="<spring:message code="button.disagree" /> <spring:message code="input.button" />"><spring:message code="button.disagree" /></button> 	  	 	  	 
+			 </div>
+		     <!-- content end -->
+		</div>
+	</form>
 
-<form name="QustnrManageForm" action="<c:url value='/sec/rnc/EgovRlnmCnfirm.do'/>" method="post">
-<div id="wTableFrm">
-		<!-- 타이틀 -->
-		<h2>${pageTitle}</h2>
-		
-        <!-- content start -->
-        <input type="hidden" name="sbscrbTy" value="${sbscrbTy}"/>
-        <!-- 실명인증의 기본옵션은 주민번호 실명확인임 : 주민번호 실명인증 으로 가기위한 초기화값 -->
-        <input type="hidden" name="ihidnum" value=""/>
-        <input type="hidden" name="realname" value=""/>
-        <!-- 실명인증후 다음단계에 대한 셋팅정보 -->
-        <input type="hidden" name ="nextUrlName" value="button.subscribe"/>
-        <input type="hidden" name ="nextUrl" value=
-        <c:if test="${sbscrbTy == 'USR01'}">"/uss/umt/EgovMberSbscrbView.do"</c:if>
-        <c:if test="${sbscrbTy == 'USR02'}">"/uss/umt/EgovEntrprsMberSbscrbView.do"</c:if>
-        <c:if test="${empty sbscrbTy}">""</c:if>
-        />
-        <c:forEach var="result" items="${stplatList}" varStatus="status">
-        <!-- 약관확인 -->
-        <table class="wTable">
-	        <tr><th><spring:message code="comUssUmt.stplatCnfirmt.useStplatCn" /></th></tr>
-            
-            <tr>
-                <td><label for="useStplatCn">
-                <textarea id="useStplatCn" cols="120" rows="15"><c:out value="${result.useStplatCn}" escapeXml="false" /></textarea>
-                </label>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="checkField">
-                <p style="text-align:left" />
-                    <input name="checkField" type="checkbox" title=<spring:message code="comUssUmt.stplatCnfirmt.useStplatCn" /> ><spring:message code="comUssUmt.stplatCnfirmtMsg.useStplat" />
-                    <input name="checkuseStplatCn" type="hidden" value="<c:out value='${result.useStplatId}'/>">
-                    </label>
-                </td>
-            </tr>
-        </table>
-        <!-- 정보동의내용 -->
-        <table class="wTable">
-            <tr><th><spring:message code="comUssUmt.stplatCnfirmt.infoProvdAgreCn" /></th></tr>
-            <tr>
-                <td><label for="infoProvdAgeCn">
-                <textarea id="infoProvdAgeCn" cols="120" rows="15"><c:out value="${result.infoProvdAgeCn}" escapeXml="false" /></textarea> 
-                </label>
-                <!-- <c:out value="${fn:replace(result.infoProvdAgeCn , crlf , '<br/>')}" escapeXml="false" /> -->
-                </td>
-            </tr>
-            <tr>
-                <td><label for="checkField">
-                <p style="text-align:left" />
-                    <input name="checkField" title="<spring:message code="comUssUmt.stplatCnfirmt.infoProvdAgreCn" />"  type="checkbox"><spring:message code="comUssUmt.stplatCnfirmtMsg.infoProvdAgre" />
-                    <input name="checkinfoProvdAgeCn" type="hidden" value="<c:out value='${result.useStplatId}'/>">
-                    </label>
-                </td>
-            </tr>
-        </table>    
-        </c:forEach>
-        
-	<%--<div class="btn"> --%>
-	<div class="btn">
-	  <div style='float: left;'>
-	  <input type="submit" class="s_submit" onclick="fnAgree(); return false;" value="<spring:message code="button.agree" />" title="<spring:message code="button.agree" /> <spring:message code="button.save" />" />
-	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 	  	 	  	 
-	 </div> 
-		  <div class="btn">
-			<button class="btn_s2" onClick="fnDisAgree(); return false;" title="<spring:message code="button.disagree" /> <spring:message code="input.button" />"><spring:message code="button.disagree" /></button>
-		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		  
-		  </div>
-	 </div>
-	 <%--<div style="clear:both;"></div>
-   </div> --%>
-</form>
-        <!-- content end -->
 </body>
 </html>

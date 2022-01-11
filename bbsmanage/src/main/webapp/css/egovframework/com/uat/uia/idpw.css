@@ -31,3 +31,7 @@
 	.login_input ul.btn_idpw li { float: left; }
 	.login_input ul.btn_idpw li:first-child { padding-right: 9px; border-right: 1px solid #d6d6d6; margin-right: 9px; }
 
+/*idpw search*/
+.idpw_form .login_input ul li input[type="text"] {width: 100%;}
+.idpw_form .login_input ul li input.btn_login {width: 100%;}
+.idpw_form .login_input ul li select {width: 100%;}

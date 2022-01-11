@@ -8,7 +8,7 @@
   * @ -------    --------    ---------------------------
   * @ 2009.03.02    조재영          최초 생성
   *   2016.06.13    장동한          표준프레임워크 v3.6 개선
-  *
+  *   2022.01.06    나연욱          모바일에서 회원가입화면 잘보이게 수정
   *  @author 공통서비스 개발팀 조재영
   *  @since 2009.03.02
   *  @version 1.0
@@ -265,7 +265,7 @@ function enterkey() {
 </head>
 <body onload="fn_egov_init()">
 <form:form commandName="mberManageVO" action="${pageContext.request.contextPath}/uss/umt/EgovMberSbscrb.do" name="mberManageVO"  method="post" onSubmit="fnInsert(document.forms[0]); return false;"> 
-<div id="wTableFrm">
+<div class="signup tableBox">
 	<!-- 타이틀 -->
 	<h2>${pageTitle} <spring:message code="title.create" /></h2>
 
@@ -310,8 +310,7 @@ function enterkey() {
 				<form:input path="mberNm" title="${title} ${inputTxt}" size="50" maxlength="50" />
 				<div><form:errors path="mberNm" cssClass="error" /></div> 
 			</td>
-		</tr><tr><td></td></tr>
-		
+		</tr>
 		<!-- 비밀번호 -->
 		<c:set var="title"><spring:message code="comUssUmt.userManageRegist.pass"/></c:set>
 		<tr>
@@ -320,7 +319,7 @@ function enterkey() {
 				<form:password path="password" title="${title} ${inputTxt}" size="50" maxlength="20" />
 				<div><form:errors path="password" cssClass="error" /></div> 
 			</td>
-		</tr><tr><td></td></tr>
+		</tr>
 		<!-- 비밀번호확인 -->
 		<c:set var="title"><spring:message code="comUssUmt.userManageRegist.passConfirm"/></c:set>
 		<tr>
@@ -379,13 +378,11 @@ function enterkey() {
 	</table>
 	<!-- 하단 버튼 --> 
 	<div class="btn">
-	<input onkeyup="enterkey();" type="hidden"  value="<spring:message code="button.create" />"  title="<spring:message code="button.create" />" />
-	<div style='float: left;'>
-	<input type="submit" class="s_submit" value="<spring:message code="button.create" />" title="<spring:message code="button.create" /> <spring:message code="input.button" />" />
+		<input onkeyup="enterkey();" type="hidden"  value="<spring:message code="button.create" />"  title="<spring:message code="button.create" />" />
+		<div>
+			<input type="submit" class="s_submit" value="<spring:message code="button.create" />" title="<spring:message code="button.create" /> <spring:message code="input.button" />" />
+		</div>
 	</div>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	  
-	</div><div style="clear:both;"></div>
 
 </div><!-- div end(wTableFrm)  -->
 
@@ -398,6 +395,5 @@ function enterkey() {
 	<c:param name="scriptYn" value="Y" />
 	<c:param name="modalName" value="egovModal" />
 </c:import>
-
 </body>
 </html>

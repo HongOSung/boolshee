@@ -268,7 +268,7 @@ width:100%;
 .wTableFrm h3 { color:#333;  font-size:14px; font-weight:600; margin:50px 0 10px 0; }
 .wTableFrm h3 b { color:#2277d7; }
 
-.wTable { width:100%; border-top:2px solid #4688d2; }
+.wTable { width:100%; border-top:2px solid #4688d2; table-layout: fixed; }
 .wTable caption { display:none; }
 .wTable > thead > tr > th,
 .wTable > thead > tr > th { color:#222 ; font-size:13px; font-weight:400; background:#f4f4f4; padding:12px 0; border-bottom:1px solid #d9d9d9; }
@@ -413,6 +413,7 @@ span.btn_r a { vertical-align:text-top; color:#fff; display:block; line-height:1
 .btn { float:right; margin-top:18px; margin-bottom:15px; font-size:11px; }
 .btn input.s_submit {height:21px; padding:0 10px; border:0 !important; color:#fff; font-family:'����', '援대┝', 'Arial', 'AppleGothic', 'sans-serif'; font-size:11px; font-weight:200; background:#4688d2; vertical-align:top; cursor:pointer; }
 .btn input.s_submit:hover { background:#7dabdf; }
+.btn input.s_submit+.btn_s2 {margin-left: 5px;}}
 
 .blog_title { border-bottom:1px solid #e3e3e3; padding-bottom:10px; }
 .blog_title h5 { float:left; font-size:14px; }
@@ -524,5 +525,16 @@ cursor :pointer;
 .twit_list li {margin-bottom:10px; }
 .twit_list li a:hover {text-decoration:underline; }
 .twit_list li img {display:block; margin-top:10px; }
+
+.tableBox .btn {text-align: center; float: none;}
+
+/* 회원가입전 동의화면 css 조정 */
+label.checkField {float: left;}
+label.checkField::after {content: ''; clear: both; display: block;}
+
+@media (max-width:768px) {
+	/* 모바일 화면에서 회원가입란 좌측 컬럼값 너비 조정*/
+  .signup.tableBox colgroup col:first-child { width:30% !important; }
+}
 
 
